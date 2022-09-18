@@ -5,31 +5,23 @@
 <head>
 
     <meta charset="utf-8" />
-    @yield('title')
+    <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('backend') }}/assets/images/favicon.ico">
-
-    <!-- jsvectormap css -->
-    <link href="{{ asset('backend') }}/assets/libs/jsvectormap/css/jsvectormap.min.css" rel="stylesheet"
-        type="text/css" />
-
-    <!--Swiper slider css-->
-    <link href="{{ asset('backend') }}/assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="{{ asset('./backend/assets/images/favicon.ico') }}">
 
     <!-- Layout config Js -->
-    <script src="{{ asset('backend') }}/assets/js/layout.js"></script>
+    <script src="{{ asset('./backend/assets/js/layout.js') }}"></script>
     <!-- Bootstrap Css -->
-    <link href="{{ asset('backend') }}/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('./backend/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
-    <link href="{{ asset('backend') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('./backend/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="{{ asset('backend') }}/assets/css/app.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('./backend/assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
-    <link href="{{ asset('backend') }}/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
-
+    <link href="{{ asset('./backend/assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -46,22 +38,22 @@
                         <div class="navbar-brand-box horizontal-logo">
                             <a href="index-2.html" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="{{ asset('backend') }}/assets/images/logo-sm.png" alt=""
+                                    <img src="{{ asset('./backend/assets/images/logo-sm.png') }}" alt=""
                                         height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="{{ asset('backend') }}/assets/images/logo-dark.png" alt=""
+                                    <img src="{{ asset('./backend/assets/images/logo-dark.png') }}" alt=""
                                         height="17">
                                 </span>
                             </a>
 
                             <a href="index-2.html" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="{{ asset('backend') }}/assets/images/logo-sm.png" alt=""
+                                    <img src="{{ asset('./backend/assets/images/logo-sm.png') }}" alt=""
                                         height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="{{ asset('backend') }}/assets/images/logo-light.png" alt=""
+                                    <img src="{{ asset('./backend/assets/images/logo-light.png') }}" alt=""
                                         height="17">
                                 </span>
                             </a>
@@ -131,8 +123,8 @@
                                         <!-- item -->
                                         <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
                                             <div class="d-flex">
-                                                <img src="{{ asset('backend') }}/assets/images/users/avatar-2.jpg"
-                                                    class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                                <img src="{{ asset('./backend/assets/images/users/avatar-2.jpg" class="me-3 rounded-circle avatar-xs') }}"
+                                                    alt="user-pic">
                                                 <div class="flex-1">
                                                     <h6 class="m-0">Angela Bernier</h6>
                                                     <span class="fs-11 mb-0 text-muted">Manager</span>
@@ -142,8 +134,8 @@
                                         <!-- item -->
                                         <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
                                             <div class="d-flex">
-                                                <img src="{{ asset('backend') }}/assets/images/users/avatar-3.jpg"
-                                                    class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                                <img src="{{ asset('./backend/assets/images/users/avatar-3.jpg" class="me-3 rounded-circle avatar-xs') }}"
+                                                    alt="user-pic">
                                                 <div class="flex-1">
                                                     <h6 class="m-0">David Grasso</h6>
                                                     <span class="fs-11 mb-0 text-muted">Web Designer</span>
@@ -153,8 +145,8 @@
                                         <!-- item -->
                                         <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
                                             <div class="d-flex">
-                                                <img src="{{ asset('backend') }}/assets/images/users/avatar-5.jpg"
-                                                    class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                                <img src="{{ asset('./backend/assets/images/users/avatar-5.jpg" class="me-3 rounded-circle avatar-xs') }}"
+                                                    alt="user-pic">
                                                 <div class="flex-1">
                                                     <h6 class="m-0">Mike Bunch</h6>
                                                     <span class="fs-11 mb-0 text-muted">React Developer</span>
@@ -200,7 +192,7 @@
                             <button type="button"
                                 class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle shadow-none"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img id="header-lang-img" src="{{ asset('backend') }}/assets/images/flags/china.svg"
+                                <img id="header-lang-img" src="{{ asset('./backend/assets/images/flags/us.svg') }}"
                                     alt="Header Language" height="20" class="rounded">
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">
@@ -208,7 +200,7 @@
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item language py-2"
                                     data-lang="en" title="English">
-                                    <img src="{{ asset('backend') }}/assets/images/flags/us.svg" alt="user-image"
+                                    <img src="{{ asset('./backend/assets/images/flags/us.svg') }}" alt="user-image"
                                         class="me-2 rounded" height="18">
                                     <span class="align-middle">English</span>
                                 </a>
@@ -216,15 +208,15 @@
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item language"
                                     data-lang="sp" title="Spanish">
-                                    <img src="{{ asset('backend') }}/assets/images/flags/spain.svg" alt="user-image"
-                                        class="me-2 rounded" height="18">
+                                    <img src="{{ asset('./backend/assets/images/flags/spain.svg') }}"
+                                        alt="user-image" class="me-2 rounded" height="18">
                                     <span class="align-middle">Española</span>
                                 </a>
 
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item language"
                                     data-lang="gr" title="German">
-                                    <img src="{{ asset('backend') }}/assets/images/flags/germany.svg"
+                                    <img src="{{ asset('./backend/assets/images/flags/germany.svg') }}"
                                         alt="user-image" class="me-2 rounded" height="18"> <span
                                         class="align-middle">Deutsche</span>
                                 </a>
@@ -232,32 +224,32 @@
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item language"
                                     data-lang="it" title="Italian">
-                                    <img src="{{ asset('backend') }}/assets/images/flags/italy.svg" alt="user-image"
-                                        class="me-2 rounded" height="18">
+                                    <img src="{{ asset('./backend/assets/images/flags/italy.svg') }}"
+                                        alt="user-image" class="me-2 rounded" height="18">
                                     <span class="align-middle">Italiana</span>
                                 </a>
 
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item language"
                                     data-lang="ru" title="Russian">
-                                    <img src="{{ asset('backend') }}/assets/images/flags/russia.svg" alt="user-image"
-                                        class="me-2 rounded" height="18">
+                                    <img src="{{ asset('./backend/assets/images/flags/russia.svg') }}"
+                                        alt="user-image" class="me-2 rounded" height="18">
                                     <span class="align-middle">русский</span>
                                 </a>
 
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item language"
                                     data-lang="ch" title="Chinese">
-                                    <img src="{{ asset('backend') }}/assets/images/flags/china.svg" alt="user-image"
-                                        class="me-2 rounded" height="18">
+                                    <img src="{{ asset('./backend/assets/images/flags/china.svg') }}"
+                                        alt="user-image" class="me-2 rounded" height="18">
                                     <span class="align-middle">中国人</span>
                                 </a>
 
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item language"
                                     data-lang="fr" title="French">
-                                    <img src="{{ asset('backend') }}/assets/images/flags/french.svg" alt="user-image"
-                                        class="me-2 rounded" height="18">
+                                    <img src="{{ asset('./backend/assets/images/flags/french.svg') }}"
+                                        alt="user-image" class="me-2 rounded" height="18">
                                     <span class="align-middle">français</span>
                                 </a>
                             </div>
@@ -286,21 +278,21 @@
                                     <div class="row g-0">
                                         <div class="col">
                                             <a class="dropdown-icon-item" href="#!">
-                                                <img src="{{ asset('backend') }}/assets/images/brands/github.png"
+                                                <img src="{{ asset('./backend/assets/images/brands/github.png') }}"
                                                     alt="Github">
                                                 <span>GitHub</span>
                                             </a>
                                         </div>
                                         <div class="col">
                                             <a class="dropdown-icon-item" href="#!">
-                                                <img src="{{ asset('backend') }}/assets/images/brands/bitbucket.png"
+                                                <img src="{{ asset('./backend/assets/images/brands/bitbucket.png') }}"
                                                     alt="bitbucket">
                                                 <span>Bitbucket</span>
                                             </a>
                                         </div>
                                         <div class="col">
                                             <a class="dropdown-icon-item" href="#!">
-                                                <img src="{{ asset('backend') }}/assets/images/brands/dribbble.png"
+                                                <img src="{{ asset('./backend/assets/images/brands/dribbble.png') }}"
                                                     alt="dribbble">
                                                 <span>Dribbble</span>
                                             </a>
@@ -310,21 +302,21 @@
                                     <div class="row g-0">
                                         <div class="col">
                                             <a class="dropdown-icon-item" href="#!">
-                                                <img src="{{ asset('backend') }}/assets/images/brands/dropbox.png"
+                                                <img src="{{ asset('./backend/assets/images/brands/dropbox.png') }}"
                                                     alt="dropbox">
                                                 <span>Dropbox</span>
                                             </a>
                                         </div>
                                         <div class="col">
                                             <a class="dropdown-icon-item" href="#!">
-                                                <img src="{{ asset('backend') }}/assets/images/brands/mail_chimp.png"
+                                                <img src="{{ asset('./backend/assets/images/brands/mail_chimp.png') }}"
                                                     alt="mail_chimp">
                                                 <span>Mail Chimp</span>
                                             </a>
                                         </div>
                                         <div class="col">
                                             <a class="dropdown-icon-item" href="#!">
-                                                <img src="{{ asset('backend') }}/assets/images/brands/slack.png"
+                                                <img src="{{ asset('./backend/assets/images/brands/slack.png') }}"
                                                     alt="slack">
                                                 <span>Slack</span>
                                             </a>
@@ -371,8 +363,8 @@
                                         </div>
                                         <div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
                                             <div class="d-flex align-items-center">
-                                                <img src="{{ asset('backend') }}/assets/images/products/img-1.png"
-                                                    class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
+                                                <img src="{{ asset('./backend/assets/images/products/img-1.png" class="me-3 rounded-circle avatar-sm p-2 bg-light') }}"
+                                                    alt="user-pic">
                                                 <div class="flex-1">
                                                     <h6 class="mt-0 mb-1 fs-14">
                                                         <a href="apps-ecommerce-product-details.html"
@@ -397,8 +389,8 @@
 
                                         <div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
                                             <div class="d-flex align-items-center">
-                                                <img src="{{ asset('backend') }}/assets/images/products/img-2.png"
-                                                    class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
+                                                <img src="{{ asset('./backend/assets/images/products/img-2.png" class="me-3 rounded-circle avatar-sm p-2 bg-light') }}"
+                                                    alt="user-pic">
                                                 <div class="flex-1">
                                                     <h6 class="mt-0 mb-1 fs-14">
                                                         <a href="apps-ecommerce-product-details.html"
@@ -422,8 +414,8 @@
 
                                         <div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
                                             <div class="d-flex align-items-center">
-                                                <img src="{{ asset('backend') }}/assets/images/products/img-3.png"
-                                                    class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
+                                                <img src="{{ asset('./backend/assets/images/products/img-3.png" class="me-3 rounded-circle avatar-sm p-2 bg-light') }}"
+                                                    alt="user-pic">
                                                 <div class="flex-1">
                                                     <h6 class="mt-0 mb-1 fs-14">
                                                         <a href="apps-ecommerce-product-details.html"
@@ -448,8 +440,8 @@
 
                                         <div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
                                             <div class="d-flex align-items-center">
-                                                <img src="{{ asset('backend') }}/assets/images/products/img-6.png"
-                                                    class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
+                                                <img src="{{ asset('./backend/assets/images/products/img-6.png" class="me-3 rounded-circle avatar-sm p-2 bg-light') }}"
+                                                    alt="user-pic">
                                                 <div class="flex-1">
                                                     <h6 class="mt-0 mb-1 fs-14">
                                                         <a href="apps-ecommerce-product-details.html"
@@ -474,8 +466,8 @@
 
                                         <div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
                                             <div class="d-flex align-items-center">
-                                                <img src="{{ asset('backend') }}/assets/images/products/img-5.png"
-                                                    class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
+                                                <img src="{{ asset('./backend/assets/images/products/img-5.png" class="me-3 rounded-circle avatar-sm p-2 bg-light') }}"
+                                                    alt="user-pic">
                                                 <div class="flex-1">
                                                     <h6 class="mt-0 mb-1 fs-14">
                                                         <a href="apps-ecommerce-product-details.html"
@@ -621,8 +613,8 @@
                                             <div
                                                 class="text-reset notification-item d-block dropdown-item position-relative active">
                                                 <div class="d-flex">
-                                                    <img src="{{ asset('backend') }}/assets/images/users/avatar-2.jpg"
-                                                        class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                                    <img src="{{ asset('./backend/assets/images/users/avatar-2.jpg" class="me-3 rounded-circle avatar-xs') }}"
+                                                        alt="user-pic">
                                                     <div class="flex-1">
                                                         <a href="#!" class="stretched-link">
                                                             <h6 class="mt-0 mb-1 fs-13 fw-semibold">Angela Bernier</h6>
@@ -630,7 +622,9 @@
                                                         <div class="fs-13 text-muted">
                                                             <p class="mb-1">Answered to your comment on the cash flow
                                                                 forecast's
-                                                                graph 🔔.</p>
+                                                                graph
+                                                                🔔
+                                                                .</p>
                                                         </div>
                                                         <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
                                                             <span><i class="mdi mdi-clock-outline"></i> 48 min
@@ -683,8 +677,8 @@
                                             <div
                                                 class="text-reset notification-item d-block dropdown-item position-relative">
                                                 <div class="d-flex">
-                                                    <img src="{{ asset('backend') }}/assets/images/users/avatar-8.jpg"
-                                                        class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                                    <img src="{{ asset('./backend/assets/images/users/avatar-8.jpg" class="me-3 rounded-circle avatar-xs') }}"
+                                                        alt="user-pic">
                                                     <div class="flex-1">
                                                         <a href="#!" class="stretched-link">
                                                             <h6 class="mt-0 mb-1 fs-13 fw-semibold">Maureen Gibson</h6>
@@ -724,8 +718,8 @@
                                         <div data-simplebar style="max-height: 300px;" class="pe-2">
                                             <div class="text-reset notification-item d-block dropdown-item">
                                                 <div class="d-flex">
-                                                    <img src="{{ asset('backend') }}/assets/images/users/avatar-3.jpg"
-                                                        class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                                    <img src="{{ asset('./backend/assets/images/users/avatar-3.jpg" class="me-3 rounded-circle avatar-xs') }}"
+                                                        alt="user-pic">
                                                     <div class="flex-1">
                                                         <a href="#!" class="stretched-link">
                                                             <h6 class="mt-0 mb-1 fs-13 fw-semibold">James Lemire</h6>
@@ -752,8 +746,8 @@
 
                                             <div class="text-reset notification-item d-block dropdown-item">
                                                 <div class="d-flex">
-                                                    <img src="{{ asset('backend') }}/assets/images/users/avatar-2.jpg"
-                                                        class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                                    <img src="{{ asset('./backend/assets/images/users/avatar-2.jpg" class="me-3 rounded-circle avatar-xs') }}"
+                                                        alt="user-pic">
                                                     <div class="flex-1">
                                                         <a href="#!" class="stretched-link">
                                                             <h6 class="mt-0 mb-1 fs-13 fw-semibold">Angela Bernier</h6>
@@ -761,7 +755,9 @@
                                                         <div class="fs-13 text-muted">
                                                             <p class="mb-1">Answered to your comment on the cash flow
                                                                 forecast's
-                                                                graph 🔔.</p>
+                                                                graph
+                                                                🔔
+                                                                .</p>
                                                         </div>
                                                         <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
                                                             <span><i class="mdi mdi-clock-outline"></i> 2 hrs
@@ -781,14 +777,15 @@
 
                                             <div class="text-reset notification-item d-block dropdown-item">
                                                 <div class="d-flex">
-                                                    <img src="{{ asset('backend') }}/assets/images/users/avatar-6.jpg"
-                                                        class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                                    <img src="{{ asset('./backend/assets/images/users/avatar-6.jpg" class="me-3 rounded-circle avatar-xs') }}"
+                                                        alt="user-pic">
                                                     <div class="flex-1">
                                                         <a href="#!" class="stretched-link">
                                                             <h6 class="mt-0 mb-1 fs-13 fw-semibold">Kenneth Brown</h6>
                                                         </a>
                                                         <div class="fs-13 text-muted">
-                                                            <p class="mb-1">Mentionned you in his comment on 📃
+                                                            <p class="mb-1">Mentionned you in his comment on
+                                                                📃
                                                                 invoice #12501.
                                                             </p>
                                                         </div>
@@ -810,8 +807,8 @@
 
                                             <div class="text-reset notification-item d-block dropdown-item">
                                                 <div class="d-flex">
-                                                    <img src="{{ asset('backend') }}/assets/images/users/avatar-8.jpg"
-                                                        class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                                    <img src="{{ asset('./backend/assets/images/users/avatar-8.jpg" class="me-3 rounded-circle avatar-xs') }}"
+                                                        alt="user-pic">
                                                     <div class="flex-1">
                                                         <a href="#!" class="stretched-link">
                                                             <h6 class="mt-0 mb-1 fs-13 fw-semibold">Maureen Gibson</h6>
@@ -847,8 +844,8 @@
                                     <div class="tab-pane fade p-4" id="alerts-tab" role="tabpanel"
                                         aria-labelledby="alerts-tab">
                                         <div class="w-25 w-sm-50 pt-3 mx-auto">
-                                            <img src="{{ asset('backend') }}/assets/images/svg/bell.svg"
-                                                class="img-fluid" alt="user-pic">
+                                            <img src="{{ asset('./backend/assets/images/svg/bell.svg" class="img-fluid') }}"
+                                                alt="user-pic">
                                         </div>
                                         <div class="text-center pb-5 mt-2">
                                             <h6 class="fs-18 fw-semibold lh-base">Hey! You have no any notifications
@@ -864,7 +861,7 @@
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="d-flex align-items-center">
                                     <img class="rounded-circle header-profile-user"
-                                        src="{{ asset('backend') }}/assets/images/users/avatar-1.jpg"
+                                        src="{{ asset('./backend/assets/images/users/avatar-1.jpg') }}"
                                         alt="Header Avatar">
                                     <span class="text-start ms-xl-2">
                                         <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Anna

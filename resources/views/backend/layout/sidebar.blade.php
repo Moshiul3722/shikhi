@@ -1,22 +1,23 @@
+<!-- ========== App Menu ========== -->
 <div class="app-menu navbar-menu">
     <!-- LOGO -->
     <div class="navbar-brand-box">
         <!-- Dark Logo-->
         <a href="index-2.html" class="logo logo-dark">
             <span class="logo-sm">
-                <img src="{{ asset('backend') }}/assets/images/logo-sm.png" alt="" height="22">
+                <img src="{{ asset('./backend/assets/images/logo-sm.png') }}" alt="" height="22">
             </span>
             <span class="logo-lg">
-                <img src="{{ asset('backend') }}/assets/images/logo-dark.png" alt="" height="17">
+                <img src="{{ asset('./backend/assets/images/logo-dark.png') }}" alt="" height="17">
             </span>
         </a>
         <!-- Light Logo-->
         <a href="index-2.html" class="logo logo-light">
             <span class="logo-sm">
-                <img src="{{ asset('backend') }}/assets/images/logo-sm.png" alt="" height="22">
+                <img src="{{ asset('./backend/assets/images/logo-sm.png') }}" alt="" height="22">
             </span>
             <span class="logo-lg">
-                <img src="{{ asset('backend') }}/assets/images/logo-light.png" alt="" height="17">
+                <img src="{{ asset('./backend/assets/images/logo-light.png') }}" alt="" height="17">
             </span>
         </a>
         <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
@@ -40,23 +41,20 @@
                     <div class="collapse menu-dropdown" id="sidebarDashboards">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="dashboard-analytics.html" class="nav-link" data-key="t-analytics">
-                                    Analytics </a>
+                                <a href="dashboard-analytics.html" class="nav-link" data-key="t-analytics"> Analytics
+                                </a>
                             </li>
                             <li class="nav-item">
                                 <a href="dashboard-crm.html" class="nav-link" data-key="t-crm"> CRM </a>
                             </li>
                             <li class="nav-item">
-                                <a href="index-2.html" class="nav-link" data-key="t-ecommerce"> Ecommerce
-                                </a>
+                                <a href="index-2.html" class="nav-link" data-key="t-ecommerce"> Ecommerce </a>
                             </li>
                             <li class="nav-item">
-                                <a href="dashboard-crypto.html" class="nav-link" data-key="t-crypto"> Crypto
-                                </a>
+                                <a href="dashboard-crypto.html" class="nav-link" data-key="t-crypto"> Crypto </a>
                             </li>
                             <li class="nav-item">
-                                <a href="dashboard-projects.html" class="nav-link" data-key="t-projects">
-                                    Projects </a>
+                                <a href="dashboard-projects.html" class="nav-link" data-key="t-projects"> Projects </a>
                             </li>
                             <li class="nav-item">
                                 <a href="dashboard-nft.html" class="nav-link"> <span data-key="t-nft">NFT</span> <span
@@ -73,8 +71,7 @@
                     <div class="collapse menu-dropdown" id="sidebarApps">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="apps-calendar.html" class="nav-link" data-key="t-calendar"> Calendar
-                                </a>
+                                <a href="apps-calendar.html" class="nav-link" data-key="t-calendar"> Calendar </a>
                             </li>
                             <li class="nav-item">
                                 <a href="apps-chat.html" class="nav-link" data-key="t-chat"> Chat </a>
@@ -105,8 +102,7 @@
                                                     </li>
                                                     <li class="nav-item">
                                                         <a href="apps-email-ecommerce.html" class="nav-link"
-                                                            data-key="t-ecommerce-action"> Ecommerce Action
-                                                        </a>
+                                                            data-key="t-ecommerce-action"> Ecommerce Action </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -234,8 +230,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="#sidebarCrypto" class="nav-link" data-bs-toggle="collapse" role="button"
-                                    aria-expanded="false" aria-controls="sidebarCrypto">
-                                    Crypto
+                                    aria-expanded="false" aria-controls="sidebarCrypto"> Crypto
                                 </a>
                                 <div class="collapse menu-dropdown" id="sidebarCrypto">
                                     <ul class="nav nav-sm flex-column">
@@ -268,8 +263,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="#sidebarInvoices" class="nav-link" data-bs-toggle="collapse" role="button"
-                                    aria-expanded="false" aria-controls="sidebarInvoices">
-                                    Invoices
+                                    aria-expanded="false" aria-controls="sidebarInvoices"> Invoices
                                 </a>
                                 <div class="collapse menu-dropdown" id="sidebarInvoices">
                                     <ul class="nav nav-sm flex-column">
@@ -290,8 +284,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="#sidebarTickets" class="nav-link" data-bs-toggle="collapse" role="button"
-                                    aria-expanded="false" aria-controls="sidebarTickets">
-                                    Support Tickets
+                                    aria-expanded="false" aria-controls="sidebarTickets"> Support Tickets
                                 </a>
                                 <div class="collapse menu-dropdown" id="sidebarTickets">
                                     <ul class="nav nav-sm flex-column">
@@ -384,8 +377,7 @@
                     </div>
                 </li> <!-- end Dashboard Menu -->
 
-                <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Pages</span>
-                </li>
+                <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Pages</span></li>
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarAuth" data-bs-toggle="collapse" role="button"
@@ -562,8 +554,7 @@
                                                 Alt </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="auth-500.html" class="nav-link" data-key="t-500"> 500
-                                            </a>
+                                            <a href="auth-500.html" class="nav-link" data-key="t-500"> 500 </a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="auth-offline.html" class="nav-link" data-key="t-offline-page">
@@ -584,8 +575,7 @@
                     <div class="collapse menu-dropdown" id="sidebarPages">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="pages-starter.html" class="nav-link" data-key="t-starter">
-                                    Starter </a>
+                                <a href="pages-starter.html" class="nav-link" data-key="t-starter"> Starter </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#sidebarProfile" class="nav-link" data-bs-toggle="collapse" role="button"
@@ -609,19 +599,16 @@
                                 <a href="pages-team.html" class="nav-link" data-key="t-team"> Team </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages-timeline.html" class="nav-link" data-key="t-timeline">
-                                    Timeline </a>
+                                <a href="pages-timeline.html" class="nav-link" data-key="t-timeline"> Timeline </a>
                             </li>
                             <li class="nav-item">
                                 <a href="pages-faqs.html" class="nav-link" data-key="t-faqs"> FAQs </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages-pricing.html" class="nav-link" data-key="t-pricing">
-                                    Pricing </a>
+                                <a href="pages-pricing.html" class="nav-link" data-key="t-pricing"> Pricing </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages-gallery.html" class="nav-link" data-key="t-gallery">
-                                    Gallery </a>
+                                <a href="pages-gallery.html" class="nav-link" data-key="t-gallery"> Gallery </a>
                             </li>
                             <li class="nav-item">
                                 <a href="pages-maintenance.html" class="nav-link" data-key="t-maintenance">
@@ -632,8 +619,7 @@
                                     Soon </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages-sitemap.html" class="nav-link" data-key="t-sitemap">
-                                    Sitemap </a>
+                                <a href="pages-sitemap.html" class="nav-link" data-key="t-sitemap"> Sitemap </a>
                             </li>
                             <li class="nav-item">
                                 <a href="pages-search-results.html" class="nav-link" data-key="t-search-results">
@@ -651,8 +637,7 @@
                     <div class="collapse menu-dropdown" id="sidebarLanding">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="landing.html" class="nav-link" data-key="t-one-page"> One Page
-                                </a>
+                                <a href="landing.html" class="nav-link" data-key="t-one-page"> One Page </a>
                             </li>
                             <li class="nav-item">
                                 <a href="nft-landing.html" class="nav-link"> <span data-key="t-nft-landing">NFT
@@ -772,8 +757,7 @@
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarAdvanceUI" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarAdvanceUI">
-                        <i class="mdi mdi-layers-triple-outline"></i> <span data-key="t-advance-ui">Advance
-                            UI</span>
+                        <i class="mdi mdi-layers-triple-outline"></i> <span data-key="t-advance-ui">Advance UI</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarAdvanceUI">
                         <ul class="nav nav-sm flex-column">
@@ -833,20 +817,18 @@
                                     Elements</a>
                             </li>
                             <li class="nav-item">
-                                <a href="forms-select.html" class="nav-link" data-key="t-form-select">
-                                    Form Select </a>
+                                <a href="forms-select.html" class="nav-link" data-key="t-form-select"> Form Select
+                                </a>
                             </li>
                             <li class="nav-item">
                                 <a href="forms-checkboxs-radios.html" class="nav-link"
                                     data-key="t-checkboxs-radios">Checkboxs & Radios</a>
                             </li>
                             <li class="nav-item">
-                                <a href="forms-pickers.html" class="nav-link" data-key="t-pickers">
-                                    Pickers </a>
+                                <a href="forms-pickers.html" class="nav-link" data-key="t-pickers"> Pickers </a>
                             </li>
                             <li class="nav-item">
-                                <a href="forms-masks.html" class="nav-link" data-key="t-input-masks">Input
-                                    Masks</a>
+                                <a href="forms-masks.html" class="nav-link" data-key="t-input-masks">Input Masks</a>
                             </li>
                             <li class="nav-item">
                                 <a href="forms-advanced.html" class="nav-link" data-key="t-advanced">Advanced</a>
@@ -894,12 +876,10 @@
                                     Tables</a>
                             </li>
                             <li class="nav-item">
-                                <a href="tables-gridjs.html" class="nav-link" data-key="t-grid-js">Grid
-                                    Js</a>
+                                <a href="tables-gridjs.html" class="nav-link" data-key="t-grid-js">Grid Js</a>
                             </li>
                             <li class="nav-item">
-                                <a href="tables-listjs.html" class="nav-link" data-key="t-list-js">List
-                                    Js</a>
+                                <a href="tables-listjs.html" class="nav-link" data-key="t-list-js">List Js</a>
                             </li>
                             <li class="nav-item">
                                 <a href="tables-datatables.html" class="nav-link"><span
@@ -992,12 +972,10 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a href="charts-chartjs.html" class="nav-link" data-key="t-chartjs">
-                                    Chartjs </a>
+                                <a href="charts-chartjs.html" class="nav-link" data-key="t-chartjs"> Chartjs </a>
                             </li>
                             <li class="nav-item">
-                                <a href="charts-echarts.html" class="nav-link" data-key="t-echarts">
-                                    Echarts </a>
+                                <a href="charts-echarts.html" class="nav-link" data-key="t-echarts"> Echarts </a>
                             </li>
                         </ul>
                     </div>
@@ -1076,8 +1054,8 @@
                                 <div class="collapse menu-dropdown" id="sidebarAccount">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link" data-key="t-level-2.1">
-                                                Level 2.1 </a>
+                                            <a href="#" class="nav-link" data-key="t-level-2.1"> Level 2.1
+                                            </a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="#sidebarCrm" class="nav-link" data-bs-toggle="collapse"
@@ -1111,3 +1089,4 @@
 
     <div class="sidebar-background"></div>
 </div>
+<!-- Left Sidebar End -->

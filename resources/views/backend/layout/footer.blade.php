@@ -1,25 +1,24 @@
-@include('backend.layouts.header');
-<!-- ========== App Menu ========== -->
-@include('backend.layouts.sidebar')
-<!-- Left Sidebar End -->
-<!-- Vertical Overlay-->
-<div class="vertical-overlay"></div>
-
-<!-- ============================================================== -->
-<!-- Start right Content here -->
-<!-- ============================================================== -->
-<div class="main-content">
-
-    @yield('content')
-    <!-- End Page-content -->
-
-    @include('backend.layouts.footer')
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <script>
+                    document.write(new Date().getFullYear())
+                </script> © Velzon.
+            </div>
+            <div class="col-sm-6">
+                <div class="text-sm-end d-none d-sm-block">
+                    Design & Develop by Themesbrand
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 </div>
 <!-- end main content-->
 
 </div>
 <!-- END layout-wrapper -->
-
 
 
 <!--start back-to-top-->
@@ -636,7 +635,7 @@
                             <input class="form-check-input" type="radio" name="data-sidebar-image"
                                 id="sidebarimg-01" value="img-1">
                             <label class="form-check-label p-0 avatar-sm h-auto" for="sidebarimg-01">
-                                <img src="{{ asset('backend') }}/assets/images/sidebar/img-1.jpg"
+                                <img src="{{ asset('./backend/assets/images/sidebar/img-1.jpg') }}" alt=""
                                     class="avatar-md w-auto object-cover">
                             </label>
                         </div>
@@ -645,7 +644,7 @@
                             <input class="form-check-input" type="radio" name="data-sidebar-image"
                                 id="sidebarimg-02" value="img-2">
                             <label class="form-check-label p-0 avatar-sm h-auto" for="sidebarimg-02">
-                                <img src="{{ asset('backend') }}/assets/images/sidebar/img-2.jpg"
+                                <img src="{{ asset('./backend/assets/images/sidebar/img-2.jpg') }}" alt=""
                                     class="avatar-md w-auto object-cover">
                             </label>
                         </div>
@@ -653,7 +652,7 @@
                             <input class="form-check-input" type="radio" name="data-sidebar-image"
                                 id="sidebarimg-03" value="img-3">
                             <label class="form-check-label p-0 avatar-sm h-auto" for="sidebarimg-03">
-                                <img src="{{ asset('backend') }}/assets/images/sidebar/img-3.jpg"
+                                <img src="{{ asset('./backend/assets/images/sidebar/img-3.jpg') }}" alt=""
                                     class="avatar-md w-auto object-cover">
                             </label>
                         </div>
@@ -661,7 +660,7 @@
                             <input class="form-check-input" type="radio" name="data-sidebar-image"
                                 id="sidebarimg-04" value="img-4">
                             <label class="form-check-label p-0 avatar-sm h-auto" for="sidebarimg-04">
-                                <img src="{{ asset('backend') }}/assets/images/sidebar/img-4.jpg"
+                                <img src="{{ asset('./backend/assets/images/sidebar/img-4.jpg') }}" alt=""
                                     class="avatar-md w-auto object-cover">
                             </label>
                         </div>
@@ -686,28 +685,15 @@
 </div>
 
 <!-- JAVASCRIPT -->
-<script src="{{ asset('backend') }}/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="{{ asset('backend') }}/assets/libs/simplebar/simplebar.min.js"></script>
-<script src="{{ asset('backend') }}/assets/libs/node-waves/waves.min.js"></script>
-<script src="{{ asset('backend') }}/assets/libs/feather-icons/feather.min.js"></script>
-<script src="{{ asset('backend') }}/assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
-<script src="{{ asset('backend') }}/assets/js/plugins.js"></script>
-
-<!-- apexcharts -->
-<script src="{{ asset('backend') }}/assets/libs/apexcharts/apexcharts.min.js"></script>
-
-<!-- Vector map-->
-<script src="{{ asset('backend') }}/assets/libs/jsvectormap/js/jsvectormap.min.js"></script>
-<script src="{{ asset('backend') }}/assets/libs/jsvectormap/maps/world-merc.js"></script>
-
-<!--Swiper slider js-->
-<script src="{{ asset('backend') }}/assets/libs/swiper/swiper-bundle.min.js"></script>
-
-<!-- Dashboard init -->
-<script src="{{ asset('backend') }}/assets/js/pages/dashboard-ecommerce.init.js"></script>
+<script src="{{ asset('./backend/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('./backend/assets/libs/simplebar/simplebar.min.js') }}"></script>
+<script src="{{ asset('./backend/assets/libs/node-waves/waves.min.js') }}"></script>
+<script src="{{ asset('./backend/assets/libs/feather-icons/feather.min.js') }}"></script>
+<script src="{{ asset('./backend/assets/js/pages/plugins/lord-icon-2.1.0.js') }}"></script>
+<script src="{{ asset('./backend/assets/js/plugins.js') }}"></script>
 
 <!-- App js -->
-<script src="{{ asset('backend') }}/assets/js/app.js"></script>
+<script src="{{ asset('./backend/assets/js/app.js') }}"></script>
 </body>
 
 </html>
