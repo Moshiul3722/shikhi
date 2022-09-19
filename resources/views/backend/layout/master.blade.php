@@ -23,9 +23,6 @@
                                 <li class="breadcrumb-item active">@yield('page')</li>
                             </ol>
                         </div>
-
-
-
                     </div>
                 </div>
             </div>
