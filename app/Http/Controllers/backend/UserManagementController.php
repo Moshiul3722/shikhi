@@ -21,13 +21,24 @@ class UserManagementController extends Controller
 
     public function roleStore(Request $request)
     {
-        $request->validate([
-            'name' => 'required'
-        ]);
 
-        Role::create([
-            'name' => Str::lower($request->name)
-        ]);
+        if ($request->isMethod('post')) {
+            $request->validate([
+                'name' => 'required|unique:roles,name'
+            ]);
+
+            Role::create([
+                'name' => Str::slug($request->name)
+            ]);
+        } else if ($request->isMethod('put')) {
+            $request->validate([
+                'name' => 'required|unique:roles,name' . $request->id
+            ]);
+
+            Role::find($request->id)->update([
+                'name' => Str::slug($request->name)
+            ]);
+        }
 
         return redirect()->back();
     }

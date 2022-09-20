@@ -30,11 +30,21 @@
                                             <div class="row gy-4">
                                                 <div class="col-xxl-4 col-md-6">
                                                     <div>
-                                                        <form action="{{ route('role.store') }}" method="POST">
+                                                        <form
+                                                            action="{{ request('name') ? route('role.store', request('name')) : route('role.store') }}"
+                                                            method='POST'>
                                                             @csrf
+                                                            @if (request('id'))
+                                                                @method('PUT')
+                                                            @endif
+                                                            @if (request('id'))
+                                                                <input type="hidden" value="{{ request('id') }}"
+                                                                    name="id" />
+                                                            @endif
                                                             <label for="name" class="form-label">Name</label>
                                                             <input type="text" class="form-control" id="name"
-                                                                name="name" placeholder="Type role name">
+                                                                name="name" placeholder="Type role name"
+                                                                value="{{ old('name') ?? request('name') }}">
 
                                                             @error('name')
                                                                 <p class="mb-0"><small
@@ -43,7 +53,7 @@
                                                             <button type="submit"
                                                                 class="btn btn-success btn-label waves-effect waves-light mt-3"><i
                                                                     class="ri-check-double-line label-icon align-middle fs-16 me-2"></i>
-                                                                Add Role</button>
+                                                                {{ request('name') ? 'Update' : 'Create' }}</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -54,24 +64,25 @@
                                                     <table class="table table-striped">
                                                         <thead>
                                                             <tr>
-                                                                <th scope="col">Id</th>
-                                                                <th scope="col">Name</th>
-                                                                <th scope="col">Action</th>
+                                                                <th scope="col" class="text-center">Id</th>
+                                                                <th scope="col" class="text-center">Name</th>
+                                                                <th scope="col" class="text-center">Action</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
 
                                                             @forelse ($roles as $key=>$role)
                                                                 <tr>
-                                                                    <th scope="row">{{ ++$key }}</th>
-                                                                    <td>{{ $role->name }}</td>
-                                                                    <td>
-                                                                        <button type="button"
+                                                                    <td scope="row" class="text-center">
+                                                                        {{ ++$key }}</td>
+                                                                    <td class="text-center">{{ $role->name }}</td>
+                                                                    <td class="text-center">
+                                                                        <a href="{{ route('user.role.index') }}?name={{ $role->name }}"
                                                                             class="btn btn-warning btn-icon waves-effect waves-light"><i
-                                                                                class="ri-edit-box-fill"></i></button>
-                                                                        <button type="button"
+                                                                                class="ri-edit-box-fill"></i></a>
+                                                                        <a href="#"
                                                                             class="btn btn-danger btn-icon waves-effect waves-light"><i
-                                                                                class="ri-delete-bin-5-line"></i></button>
+                                                                                class="ri-delete-bin-5-line"></i></a>
                                                                     </td>
 
                                                                 </tr>
