@@ -40,12 +40,12 @@
                     </a>
                 </li> <!-- end Dashboard Menu -->
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarUserManagement" data-bs-toggle="collapse" role="button"
+                    <a class="nav-link menu-link" href="#sidebarRoleManagement" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarDashboards">
-                        <i class="mdi mdi-account-supervisor-circle"></i> <span data-key="t-dashboards">User
+                        <i class="ri-team-line"></i> <span data-key="t-dashboards">Role
                             Management</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarUserManagement">
+                    <div class="collapse menu-dropdown" id="sidebarRoleManagement">
                         <ul class="nav nav-sm flex-column">
                             {{-- <li class="nav-item">
                                 <a href="{{ route('user.management.index') }}" class="nav-link" data-key="t-analytics">
@@ -66,6 +66,49 @@
                         </ul>
                     </div>
                 </li> <!-- end User Management Menu -->
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarUserManagement" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarDashboards">
+                        <i class="ri-user-settings-line"></i> <span data-key="t-dashboards">User
+                            Management</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarUserManagement">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{ route('user.management.index') }}" class="nav-link" data-key="t-analytics">
+                                    Users
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('user.create') }}" class="nav-link" data-key="t-analytics">
+                                    Add User
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#categoryManagement" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarDashboards">
+                        <i class="mdi mdi-bookmark-box-multiple-outline"></i>
+                        <span data-key="t-dashboards">Category
+                            Management</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="categoryManagement">
+                        <ul class="nav nav-sm flex-column">
+
+                            <li class="nav-item">
+                                <a href="{{ route('category.index') }}" class="nav-link" data-key="t-analytics">
+                                    Category CRUD </a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </li> <!-- end category management -->
 
             </ul>
         </div>

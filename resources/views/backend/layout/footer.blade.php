@@ -685,6 +685,7 @@
 </div>
 
 <!-- JAVASCRIPT -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="{{ asset('./backend/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('./backend/assets/libs/simplebar/simplebar.min.js') }}"></script>
 <script src="{{ asset('./backend/assets/libs/node-waves/waves.min.js') }}"></script>
@@ -692,8 +693,34 @@
 <script src="{{ asset('./backend/assets/js/pages/plugins/lord-icon-2.1.0.js') }}"></script>
 <script src="{{ asset('./backend/assets/js/plugins.js') }}"></script>
 
+<!-- dropzone min -->
+<script src="{{ asset('./backend') }}/assets/libs/dropzone/dropzone-min.js"></script>
+<!-- filepond js -->
+<script src="{{ asset('./backend') }}assets/libs/filepond/filepond.min.js"></script>
+<script src="{{ asset('./backend') }}assets/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.js">
+</script>
+<script
+    src="{{ asset('./backend') }}assets/libs/filepond-plugin-file-validate-size/filepond-plugin-file-validate-size.min.js">
+</script>
+<script
+    src="{{ asset('./backend') }}assets/libs/filepond-plugin-image-exif-orientation/filepond-plugin-image-exif-orientation.min.js">
+</script>
+<script src="{{ asset('./backend') }}assets/libs/filepond-plugin-file-encode/filepond-plugin-file-encode.min.js">
+</script>
+
+<script src="{{ asset('./backend') }}assets/js/pages/form-file-upload.init.js"></script>
+
 <!-- App js -->
 <script src="{{ asset('./backend/assets/js/app.js') }}"></script>
 </body>
 
 </html>
+
+
+<script>
+    $(document).ready(function() {
+        setTimeout(() => {
+            $(".alert-success").slideUp("slow");
+        }, 3000);
+    });
+</script>

@@ -20,8 +20,11 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'Moshiul',
+            'userName' => 'Moshiul',
+            'phone' => '01715369865',
             'email' => 'test@gmail.com',
             'password' => bcrypt('123'),
+            'thumbnail' => 'https://picsum.photos/300'
         ]);
     }
 }

@@ -11,12 +11,12 @@ class UserManagementController extends Controller
 {
     public function index()
     {
-        return view('backend.user-management.index');
+        return view('backend.user-management.user.index');
     }
 
     public function roleIndex()
     {
-        return view('backend.user-management.role.index')->with('roles', Role::orderBy('name', 'ASC')->get());
+        return view('backend.user-management.user.index')->with('roles', Role::orderBy('name', 'ASC')->get());
     }
 
     public function roleStore(Request $request)
@@ -30,16 +30,30 @@ class UserManagementController extends Controller
             Role::create([
                 'name' => Str::slug($request->name)
             ]);
+
+            $msg = 'Created Successfully';
         } else if ($request->isMethod('put')) {
             $request->validate([
-                'name' => 'required|unique:roles,name' . $request->id
+                'name' => 'required|unique:roles,name,' . $request->id
             ]);
 
             Role::find($request->id)->update([
                 'name' => Str::slug($request->name)
             ]);
+
+            $msg = 'Updated Successfully';
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('success', $msg);
+    }
+
+    public function createUser()
+    {
+        return view('backend.user-management.user.addUser');
+    }
+
+    public function userStore(Request $request)
+    {
+        # code...
     }
 }

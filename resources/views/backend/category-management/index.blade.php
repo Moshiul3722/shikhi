@@ -1,6 +1,6 @@
 @extends('backend.layout.master')
 @section('title', 'Shikhi | Dashboard')
-@section('page', 'User Role')
+@section('page', 'Category')
 
 @section('page-content')
     <div class="row">
@@ -14,9 +14,9 @@
                             <div class="col-lg-12">
                                 <div class="card">
 
-                                    <!-- end card header -->
                                     <div class="card-body">
                                         <div class="live-preview">
+
                                             <div class="row gy-4">
                                                 <div class="col-xxl-5 col-md-6">
                                                     @if (Session('success'))
@@ -27,16 +27,16 @@
                                                 </div>
                                             </div>
                                             <div class="row gy-4">
-                                                <div class="col-xxl-4 col-md-6 d-flex">
-                                                    <a href="{{ route('user.role.index') }}"
-                                                        class="btn btn-success mb-2 ms-auto">Add New Role</a>
+                                                <div class="col-xxl-5 col-md-6 d-flex">
+                                                    <a href="{{ route('category.index') }}"
+                                                        class="btn btn-success mb-2 ms-auto">Add New Category</a>
                                                 </div>
                                             </div>
                                             <div class="row gy-4">
                                                 <div class="col-xxl-5 col-md-6">
                                                     <div>
                                                         <form
-                                                            action="{{ request('name') ? route('role.store', request('id')) : route('role.store') }}"
+                                                            action="{{ request('category') ? route('category.store', request('id')) : route('category.store') }}"
                                                             method='POST'>
                                                             @csrf
                                                             @if (request('id'))
@@ -46,19 +46,19 @@
                                                                 <input type="hidden" value="{{ request('id') }}"
                                                                     name="id" />
                                                             @endif
-                                                            <label for="name" class="form-label">Name</label>
-                                                            <input type="text" class="form-control" id="name"
-                                                                name="name" placeholder="Type role name"
-                                                                value="{{ old('name') ?? request('name') }}">
+                                                            <label for="category" class="form-label">Category</label>
+                                                            <input type="text" class="form-control" id="category"
+                                                                name="category" placeholder="Type category name"
+                                                                value="{{ old('category') ?? request('category') }}">
 
-                                                            @error('name')
+                                                            @error('category')
                                                                 <p class="mb-0"><small
                                                                         class="text-danger fs-6">{{ $message }}</small></p>
                                                             @enderror
                                                             <button type="submit"
                                                                 class="btn btn-success btn-label waves-effect waves-light mt-3"><i
                                                                     class="ri-check-double-line label-icon align-middle fs-16 me-2"></i>
-                                                                {{ request('name') ? 'Update' : 'Create' }}</button>
+                                                                {{ request('category') ? 'Update' : 'Create' }}</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -70,28 +70,38 @@
                                                             <tr>
                                                                 <th scope="col" class="text-center">Id</th>
                                                                 <th scope="col" class="text-center">Name</th>
+                                                                <th scope="col" class="text-center">Slug</th>
                                                                 <th scope="col" class="text-center">Action</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-
-                                                            @forelse ($roles as $key=>$role)
+                                                            @forelse ($categories as $key=>$category)
                                                                 <tr>
                                                                     <td scope="row" class="text-center">
                                                                         {{ ++$key }}</td>
-                                                                    <td class="text-center">{{ $role->name }}</td>
+                                                                    <td class="text-center">{{ $category->name }}</td>
+                                                                    <td class="text-center">{{ $category->slug }}</td>
                                                                     <td class="text-center">
-                                                                        <a href="{{ route('user.role.index') }}?name={{ $role->name }}&id={{ $role->id }}"
+                                                                        <a href="{{ route('category.index') }}?category={{ $category->name }}&id={{ $category->id }}"
                                                                             class="btn btn-warning btn-icon waves-effect waves-light"><i
                                                                                 class="ri-edit-box-fill"></i></a>
-                                                                        <a href="#"
-                                                                            class="btn btn-danger btn-icon waves-effect waves-light"><i
-                                                                                class="ri-delete-bin-5-line"></i></a>
+
+                                                                        <form class="d-inline"
+                                                                            action="{{ route('category.destroy', $category) }}"
+                                                                            method="POST"
+                                                                            onsubmit="return confirm('Do you really want to delete!');">
+                                                                            @csrf
+                                                                            @method('DELETE')
+
+                                                                            <button type="submit"
+                                                                                class="btn btn-danger btn-icon waves-effect waves-light"><i
+                                                                                    class="ri-delete-bin-5-line"></i></button>
+                                                                        </form>
                                                                     </td>
                                                                 </tr>
                                                             @empty
                                                                 <tr>
-                                                                    <td colspan="2" class="fs-5 text-center">No role
+                                                                    <td colspan="4" class="fs-5 text-center">No role
                                                                         found</td>
                                                                 </tr>
                                                             @endforelse
