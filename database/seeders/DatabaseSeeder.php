@@ -24,7 +24,9 @@ class DatabaseSeeder extends Seeder
             'phone' => '01715369865',
             'email' => 'test@gmail.com',
             'password' => bcrypt('123'),
-            'thumbnail' => 'https://picsum.photos/300'
+            'role' => 'admin',
+            'status' => 'active',
+            'thumbnail' => 'https://random.imagecdn.app/100/100'
         ]);
     }
 }

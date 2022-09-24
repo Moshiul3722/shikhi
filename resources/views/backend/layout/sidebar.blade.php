@@ -91,24 +91,11 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#categoryManagement" data-bs-toggle="collapse" role="button"
-                        aria-expanded="false" aria-controls="sidebarDashboards">
-                        <i class="mdi mdi-bookmark-box-multiple-outline"></i>
-                        <span data-key="t-dashboards">Category
-                            Management</span>
+                    <a class="nav-link menu-link" href="{{ route('category.index') }}">
+                        <i class="mdi mdi-bookmark-box-multiple-outline"></i> <span data-key="t-widgets">Category</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="categoryManagement">
-                        <ul class="nav nav-sm flex-column">
+                </li>
 
-                            <li class="nav-item">
-                                <a href="{{ route('category.index') }}" class="nav-link" data-key="t-analytics">
-                                    Category CRUD </a>
-                            </li>
-
-
-                        </ul>
-                    </div>
-                </li> <!-- end category management -->
 
             </ul>
         </div>

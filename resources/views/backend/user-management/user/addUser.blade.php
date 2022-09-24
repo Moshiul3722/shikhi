@@ -20,53 +20,64 @@
 
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <form action="javascript:void(0);" class="row g-3">
+                                                    <form action="{{ route('user.store') }}" method="POST" class="row g-3"
+                                                        enctype="multipart/form-data">
+                                                        @csrf
                                                         <div class="col-md-6">
-                                                            <label for="fullnameInput" class="form-label">Name</label>
-                                                            <input type="text" class="form-control" id="fullnameInput"
-                                                                placeholder="Enter your name">
+                                                            <label for="name" class="form-label">Name</label>
+                                                            <input type="text" class="form-control" name="name"
+                                                                id="name" placeholder="Enter your name">
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <label for="fullnameInput" class="form-label">User Name</label>
-                                                            <input type="text" class="form-control" id="fullnameInput"
-                                                                placeholder="Enter your name">
+                                                            <label for="userName" class="form-label">User Name</label>
+                                                            <input type="text" class="form-control" name="userName"
+                                                                id="userName" placeholder="Enter user name">
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <label for="inputEmail4" class="form-label">Email</label>
-                                                            <input type="email" class="form-control" id="inputEmail4"
-                                                                placeholder="Email">
+                                                            <label for="email" class="form-label">Email</label>
+                                                            <input type="email" class="form-control" name="email"
+                                                                id="email" placeholder="Email">
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <label for="inputPassword4" class="form-label">Phone</label>
-                                                            <input type="password" class="form-control" id="inputPassword4"
-                                                                placeholder="Password">
+                                                            <label for="phone" class="form-label">Phone</label>
+                                                            <input type="text" class="form-control" name="phone"
+                                                                id="phone" placeholder="Enter phone number">
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <label for="inputEmail4" class="form-label">Password</label>
-                                                            <input type="email" class="form-control" id="inputEmail4"
-                                                                placeholder="Email">
+                                                            <label for="password" class="form-label">Password</label>
+                                                            <input type="password" class="form-control" name="password"
+                                                                id="password" placeholder="password">
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <label for="inputPassword4" class="form-label">Confirm
+                                                            <label for="conPassword" class="form-label">Confirm
                                                                 Password</label>
                                                             <input type="password" class="form-control" id="inputPassword4"
-                                                                placeholder="Password">
+                                                                placeholder="Confirm Password">
                                                         </div>
 
 
-                                                        <div class="col-md-4">
+                                                        <div class="col-md-6">
+                                                            <label for="inputState" class="form-label">Role</label>
+                                                            <select name="role" id="inputState" class="form-select">
+                                                                <option selected>Select Role</option>
+                                                                <option value="admin">Admin</option>
+                                                                <option value="user">User</option>
+                                                                <option value="teacher">Teacher</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-6">
                                                             <label for="inputState" class="form-label">Status</label>
-                                                            <select id="inputState" class="form-select">
-                                                                <option selected>Choose...</option>
-                                                                <option>...</option>
+                                                            <select name="status" id="inputState" class="form-select">
+                                                                <option selected>Select status</option>
+                                                                <option value="active">Active</option>
+                                                                <option value="inactive">Inactive</option>
                                                             </select>
                                                         </div>
                                                         <div class="col-md-12">
 
                                                             <div class="card">
                                                                 <div class="card-header">
-                                                                    <h4 class="card-title mb-0">Profile Picture
-                                                                        Selection</h4>
+                                                                    <h4 class="card-title mb-0">User Image</h4>
                                                                 </div><!-- end card header -->
 
                                                                 <div class="card-body">
@@ -76,7 +87,7 @@
                                                                     <div class="avatar-xl mx-auto">
                                                                         <input type="file"
                                                                             class="filepond filepond-input-circle"
-                                                                            name="filepond"
+                                                                            name="thumbnail"
                                                                             accept="image/png, image/jpeg, image/gif" />
                                                                     </div>
 

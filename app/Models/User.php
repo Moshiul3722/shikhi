@@ -18,10 +18,16 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
     protected $fillable = [
         'name',
         'email',
         'password',
+        'userName',
+        'phone',
+        'thumbnail',
+        'role',
+        'status'
     ];
 
     /**
@@ -42,4 +48,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getThumbnailAttribute($name)
+    {
+        if (str_starts_with($name, 'http')) {
+            return [
+                'url'      => $name,
+            ];
+        } else {
+            return [
+                'url'      => asset('storage/uploads/' . $name),
+                'fileName' => $name
+            ];
+        }
+    }
 }

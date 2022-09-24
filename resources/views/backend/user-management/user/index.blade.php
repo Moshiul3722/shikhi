@@ -22,45 +22,47 @@
                                                                 <thead>
                                                                     <tr>
                                                                         <th scope="col">ID</th>
-                                                                        <th scope="col">Customer</th>
-                                                                        <th scope="col">Date</th>
-                                                                        <th scope="col">Invoice</th>
+                                                                        <th scope="col">Image</th>
+                                                                        <th scope="col">Name</th>
+                                                                        <th scope="col">Email</th>
+                                                                        <th scope="col">Phone</th>
+                                                                        <th scope="col">Role</th>
+                                                                        <th scope="col">Status</th>
                                                                         <th scope="col">Action</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                    <tr>
-                                                                        <td class="fw-medium">01</td>
-                                                                        <td>Bobby Davis</td>
-                                                                        <td>Nov 14, 2021</td>
-                                                                        <td>$2,410</td>
-                                                                        <td><span class="badge bg-success">Confirmed</span>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="fw-medium">02</td>
-                                                                        <td>Christopher Neal</td>
-                                                                        <td>Nov 21, 2021</td>
-                                                                        <td>$1,450</td>
-                                                                        <td><span class="badge bg-warning">Waiting</span>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="fw-medium">03</td>
-                                                                        <td>Monkey Karry</td>
-                                                                        <td>Nov 24, 2021</td>
-                                                                        <td>$3,500</td>
-                                                                        <td><span class="badge bg-success">Confirmed</span>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="fw-medium">04</td>
-                                                                        <td>Aaron James</td>
-                                                                        <td>Nov 25, 2021</td>
-                                                                        <td>$6,875</td>
-                                                                        <td><span class="badge bg-danger">Cancelled</span>
-                                                                        </td>
-                                                                    </tr>
+                                                                    @forelse ($users as $key=>$user)
+                                                                        <tr>
+                                                                            <td class="fw-medium">{{ ++$key }}</td>
+                                                                            <td>
+
+                                                                                <img class="user-image"
+                                                                                    src="{{ $user->thumbnail['url'] }}"
+                                                                                    alt="" srcset="">
+                                                                            </td>
+                                                                            <td>{{ $user->name }}</td>
+                                                                            <td>{{ $user->email }}</td>
+                                                                            <td>{{ $user->phone }}</td>
+                                                                            <td>{{ $user->role }}</td>
+                                                                            <td>{{ $user->status }}</td>
+                                                                            <td>
+                                                                                <a href="#"><i
+                                                                                        class="ri-edit-line fs-4 text-primary"></i></a>
+                                                                                <a href="#"><i
+                                                                                        class="ri-eye-line fs-4 text-success"></i></a>
+                                                                                <a href="#"><i
+                                                                                        class="ri-delete-bin-5-line fs-4 text-danger"></i></a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    @empty
+                                                                        <tr>
+                                                                            <td colspan="8" class="fs-5 text-center">
+                                                                                No records are found
+                                                                            </td>
+                                                                        </tr>
+                                                                    @endforelse
+
                                                                 </tbody>
                                                             </table>
                                                         </div>
