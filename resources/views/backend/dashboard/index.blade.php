@@ -1919,6 +1919,6 @@
 
         </div> <!-- end col -->
 
-        @include('backend.layout.recentactivity')
+        {{-- @include('backend.layout.recentactivity') --}}
     </div>
 @endsection

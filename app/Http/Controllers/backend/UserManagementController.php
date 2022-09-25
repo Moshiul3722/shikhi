@@ -61,10 +61,10 @@ class UserManagementController extends Controller
             'userName'  => 'required|max:100',
             'email'     => 'required|unique:users,email',
             'phone'     => 'required|unique:users,phone',
-            'password'  => 'required|max:255',
+            'password' => 'required|confirmed|min:6',
             'thumbnail' => 'image',
-            'status'    => 'not_in:none|string',
-            'role'      => 'not_in:none|string'
+            'status' => 'required|not_in:none',
+            'role' => 'required|not_in:none'
         ]);
 
         $thumb = '';
