@@ -20,13 +20,15 @@
 
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <form action="{{ route('user.store') }}" method="POST" class="row g-3"
+                                                    <form action="{{ route('user.update',$user->id) }}" method="POST" class="row g-3"
                                                         enctype="multipart/form-data">
                                                         @csrf
+                                                        @method('PUT')
+
                                                         <div class="col-md-6">
                                                             <label for="name" class="form-label">Name</label>
                                                             <input type="text" class="form-control" name="name"
-                                                                id="name" placeholder="Enter your name" value="{{old('name')}}">
+                                                                id="name" placeholder="Enter your name" value="{{$user->name}}">
 
                                                                 @error('name')
                                                                 <p class="mb-0"><small
@@ -36,7 +38,7 @@
                                                         <div class="col-md-6">
                                                             <label for="userName" class="form-label">User Name</label>
                                                             <input type="text" class="form-control" name="userName"
-                                                                id="userName" placeholder="Enter user name" value="{{old('userName')}}">
+                                                                id="userName" placeholder="Enter user name" value="{{$user->userName}}">
 
                                                                 @error('userName')
                                                                 <p class="mb-0"><small
@@ -46,7 +48,7 @@
                                                         <div class="col-md-6">
                                                             <label for="email" class="form-label">Email</label>
                                                             <input type="email" class="form-control" name="email"
-                                                                id="email" placeholder="Email" value="{{old('email')}}">
+                                                                id="email" placeholder="Email" value="{{$user->email}}">
 
                                                                 @error('email')
                                                                 <p class="mb-0"><small
@@ -56,7 +58,7 @@
                                                         <div class="col-md-6">
                                                             <label for="phone" class="form-label">Phone</label>
                                                             <input type="text" class="form-control" name="phone"
-                                                                id="phone" placeholder="Enter phone number" value="{{old('phone')}}">
+                                                                id="phone" placeholder="Enter phone number" value="{{$user->phone}}">
 
                                                                 @error('phone')
                                                                 <p class="mb-0"><small
@@ -85,20 +87,12 @@
                                                             @enderror
                                                         </div>
 
-
                                                         <div class="col-md-6">
                                                             <label for="inputState" class="form-label">Role</label>
                                                             <select name="role" id="inputState" class="form-select">
-                                                                <option value="none">Select Role</option>
-                                                                <option value="admin"
-                                                                    {{ old('status') == 'admin' || request('status') == 'admin' ? 'selected' : '' }}>
-                                                                    Admin</option>
-                                                                <option value="user"
-                                                                    {{ old('status') == 'user' || request('status') == 'user' ? 'selected' : '' }}>
-                                                                    User</option>
-                                                                <option value="teacher"
-                                                                    {{ old('status') == 'teacher' || request('status') == 'teacher' ? 'selected' : '' }}>
-                                                                    Teacher</option>
+                                                                <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
+                                                                <option value="user" {{ $user->role == 'user' ? 'selected' : '' }}>User</option>
+                                                                <option value="teacher" {{ $user->role == 'teacher' ? 'selected' : '' }}>Teacher</option>
                                                             </select>
 
                                                             @error('role')
@@ -110,12 +104,8 @@
                                                             <label for="inputState" class="form-label">Status</label>
                                                             <select name="status" id="inputState" class="form-select">
                                                                 <option value="none">Select Status</option>
-                                                                <option value="active"
-                                                                    {{ old('status') == 'active' || request('status') == 'active' ? 'selected' : '' }}>
-                                                                    Active</option>
-                                                                <option value="inactive"
-                                                                    {{ old('status') == 'inactive' || request('status') == 'inactive' ? 'selected' : '' }}>
-                                                                    Inactive</option>
+                                                                <option value="active" {{ $user->status == 'active' ? 'selected' : '' }}>Active</option>
+                                                                <option value="inactive" {{ $user->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
                                                             </select>
 
                                                             @error('status')
@@ -139,6 +129,7 @@
                                                                             class="filepond filepond-input-circle"
                                                                             name="thumbnail"
                                                                             accept="image/png, image/jpeg, image/gif" />
+                                                                            <img class="user_thumbnail" src="{{$user->thumbnail['url']}}" alt="" srcset="">
                                                                     </div>
 
                                                                 </div>
@@ -151,7 +142,7 @@
 
                                                         <div class="col-12">
                                                             <div class="text-end">
-                                                                <button type="submit" class="btn btn-primary">Add
+                                                                <button type="submit" class="btn btn-danger">Update
                                                                     User</button>
                                                             </div>
                                                         </div>

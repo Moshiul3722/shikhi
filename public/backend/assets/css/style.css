@@ -3,3 +3,8 @@ img.user-image {
     height: 50px;
     border-radius: 50%;
 }
+img.user_thumbnail {
+    width: 100px;
+    margin-top: 10px;
+    border-radius: 4px;
+}

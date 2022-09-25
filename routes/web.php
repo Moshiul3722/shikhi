@@ -31,6 +31,9 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::get('user-management', [UserManagementController::class, 'index'])->name('user.management.index');
     Route::get('add-user', [UserManagementController::class, 'createUser'])->name('user.create');
     Route::post('user/store', [UserManagementController::class, 'storeUser'])->name('user.store');
+    Route::get('user/edit/{user}', [UserManagementController::class, 'editUser'])->name('user.edit');
+    Route::put('user/update/{user}', [UserManagementController::class, 'updateUser'])->name('user.update');
+    Route::delete('user/delete/{user}', [UserManagementController::class, 'destroyUser'])->name('user.delete');
 
     Route::get('user-role', [UserManagementController::class, 'roleIndex'])->name('user.role.index');
     // Route::post('user-role/store', [UserManagementController::class, 'roleStore'])->name('role.store');

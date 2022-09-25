@@ -41,18 +41,25 @@
                                                                                     src="{{ $user->thumbnail['url'] }}"
                                                                                     alt="" srcset="">
                                                                             </td>
-                                                                            <td>{{ $user->name }}</td>
+                                                                            <td><a href={{route('user.edit',$user->id)}}>{{ $user->name }}</a></td>
                                                                             <td>{{ $user->email }}</td>
                                                                             <td>{{ $user->phone }}</td>
                                                                             <td>{{ $user->role }}</td>
                                                                             <td>{{ $user->status }}</td>
                                                                             <td>
-                                                                                <a href="#"><i
+                                                                                <a href="{{route('user.edit',$user->id)}}"><i
                                                                                         class="ri-edit-line fs-4 text-primary"></i></a>
-                                                                                <a href="#"><i
-                                                                                        class="ri-eye-line fs-4 text-success"></i></a>
-                                                                                <a href="#"><i
-                                                                                        class="ri-delete-bin-5-line fs-4 text-danger"></i></a>
+                                                                                <form class="d-inline"
+                                                                            action="{{ route('user.delete', $user) }}"
+                                                                            method="POST"
+                                                                            onsubmit="return confirm('Do you really want to delete!');">
+                                                                            @csrf
+                                                                            @method('DELETE')
+
+                                                                            <button type="submit"
+                                                                                class="btn btn-danger btn-icon waves-effect waves-light"><i
+                                                                                    class="ri-delete-bin-5-line"></i></button>
+                                                                        </form>
                                                                             </td>
                                                                         </tr>
                                                                     @empty
