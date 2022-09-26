@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Category;
+use App\Models\Course;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -28,5 +30,8 @@ class DatabaseSeeder extends Seeder
             'status' => 'active',
             'thumbnail' => 'https://random.imagecdn.app/100/100'
         ]);
+
+        Category::factory(10)->create();
+        Course::factory(20)->create();
     }
 }

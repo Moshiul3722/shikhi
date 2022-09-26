@@ -23,6 +23,15 @@
     <!-- custom Css-->
     <link href="{{ asset('./backend/assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('./backend/assets/css/style.css') }}" rel="stylesheet" type="text/css" />
+
+    <!-- FilePond styles -->
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    <!-- Add plugin styles -->
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+
+
+
+
     <style>
         body {
             font-size: 1rem;
