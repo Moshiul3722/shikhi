@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->longText('description')->nullable();
+            $table->string('requirements')->nullable();
+            $table->string('audience')->nullable();
+            $table->string('thumbnail')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->foreignId('category_id');
             $table->foreignId('teacher_id');

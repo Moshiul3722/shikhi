@@ -15,7 +15,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-      return view('backend.course-management.index');
+      return view('backend.course-management.index')
+      ->with('courses',Course::orderBy('name','ASC')->paginate(10));
     }
 
     /**
@@ -25,7 +26,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.course-management.add');
     }
 
     /**

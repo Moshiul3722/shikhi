@@ -105,12 +105,12 @@
                     <div class="collapse menu-dropdown {{request()->routeIs('user.*')?'show':''}}" id="sidebarCourseManagement">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('course.index') }}" class="nav-link {{request()->routeIs('user.*')?'active':''}}" data-key="t-analytics">
+                                <a href="{{ route('course.index') }}" class="nav-link {{request()->routeIs('course.*')?'active':''}}" data-key="t-analytics">
                                     Course List
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('user.create') }}" class="nav-link {{request()->routeIs('user.*')?'active':''}}" data-key="t-analytics">
+                                <a href="{{ route('course.create') }}" class="nav-link {{request()->routeIs('course.*')?'active':''}}" data-key="t-analytics">
                                     Add Course
                                 </a>
                             </li>
