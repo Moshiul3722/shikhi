@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\CourseController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\UserManagementController;
 use Illuminate\Support\Facades\Route;
@@ -44,6 +45,11 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::get('category', [CategoryController::class, 'index'])->name('category.index');
     Route::match(['post', 'put'], 'category/store', [CategoryController::class, 'store'])->name('category.store');
     Route::delete('category/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
+
+
+
+    // Course Management
+    Route::resource('course',CourseController::class);
 });
 
 

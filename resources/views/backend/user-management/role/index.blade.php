@@ -27,7 +27,7 @@
                                                 </div>
                                             </div>
                                             <div class="row gy-4">
-                                                <div class="col-xxl-4 col-md-6 d-flex">
+                                                <div class="col-xxl-5 col-md-6 d-flex">
                                                     <a href="{{ route('user.role.index') }}"
                                                         class="btn btn-success mb-2 ms-auto">Add New Role</a>
                                                 </div>
@@ -91,7 +91,7 @@
                                                                 </tr>
                                                             @empty
                                                                 <tr>
-                                                                    <td colspan="2" class="fs-5 text-center">No role
+                                                                    <td colspan="3" class="fs-5 text-center">No role
                                                                         found</td>
                                                                 </tr>
                                                             @endforelse
