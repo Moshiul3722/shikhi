@@ -18,7 +18,7 @@ class UserManagementController extends Controller
 
     public function roleIndex()
     {
-        return view('backend.user-management.user.index')->with('roles', Role::orderBy('name', 'ASC')->get());
+        return view('backend.user-management.role.index')->with('roles', Role::orderBy('name', 'ASC')->get());
     }
 
     public function roleStore(Request $request)

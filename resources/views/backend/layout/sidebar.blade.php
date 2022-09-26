@@ -68,20 +68,20 @@
                 </li> <!-- end User Management Menu -->
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarUserManagement" data-bs-toggle="collapse" role="button"
+                    <a class="nav-link menu-link {{request()->routeIs('user.*')?'active':''}}" href="#sidebarUserManagement" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarDashboards">
                         <i class="ri-user-settings-line"></i> <span data-key="t-dashboards">User
                             Management</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarUserManagement">
+                    <div class="collapse menu-dropdown {{request()->routeIs('user.*')?'show':''}}" id="sidebarUserManagement">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('user.management.index') }}" class="nav-link" data-key="t-analytics">
+                                <a href="{{ route('user.management.index') }}" class="nav-link {{request()->routeIs('user.*')?'active':''}}" data-key="t-analytics">
                                     Users
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('user.create') }}" class="nav-link" data-key="t-analytics">
+                                <a href="{{ route('user.create') }}" class="nav-link {{request()->routeIs('user.*')?'active':''}}" data-key="t-analytics">
                                     Add User
                                 </a>
                             </li>
@@ -91,12 +91,34 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="{{ route('category.index') }}">
+                    <a class="nav-link menu-link {{request()->routeIs('category.*')?'active':''}}" href="{{ route('category.index') }}">
                         <i class="mdi mdi-bookmark-box-multiple-outline"></i> <span data-key="t-widgets">Category</span>
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{request()->routeIs('user.*')?'active':''}}" href="#sidebarCourseManagement" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarDashboards">
+                        <i class="ri-user-settings-line"></i> <span data-key="t-dashboards">Course
+                            Management</span>
+                    </a>
+                    <div class="collapse menu-dropdown {{request()->routeIs('user.*')?'show':''}}" id="sidebarCourseManagement">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{ route('course.index') }}" class="nav-link {{request()->routeIs('user.*')?'active':''}}" data-key="t-analytics">
+                                    Course List
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('user.create') }}" class="nav-link {{request()->routeIs('user.*')?'active':''}}" data-key="t-analytics">
+                                    Add Course
+                                </a>
+                            </li>
 
+
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
         <!-- Sidebar -->
