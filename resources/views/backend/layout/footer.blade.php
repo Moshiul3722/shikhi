@@ -714,25 +714,4 @@
 </body>
 
 </html>
-
-
-<script>
-    // initialize the plugins
-    FilePond.registerPlugin(
-        FilePondPluginImagePreview,
-        FilePondPluginImageResize,
-        FilePondPluginImageTransform
-    );
-
-    const inputElement = document.querySelector('#courseImage');
-    const pond = FilePond.create(inputElement);
-
-
-    $(document).ready(function() {
-        setTimeout(() => {
-            $(".alert-success").slideUp("slow");
-        }, 3000);
-    });
-</script>
-
 @yield('scripts')
