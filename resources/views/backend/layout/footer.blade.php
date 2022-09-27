@@ -717,7 +717,6 @@
 
 
 <script>
-
     // initialize the plugins
     FilePond.registerPlugin(
         FilePondPluginImagePreview,
@@ -735,3 +734,5 @@
         }, 3000);
     });
 </script>
+
+@yield('scripts')

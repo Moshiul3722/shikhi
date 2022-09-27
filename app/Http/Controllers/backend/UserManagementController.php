@@ -76,13 +76,13 @@ class UserManagementController extends Controller
 
         // dd($request->all());
         User::create([
-            'name'     => $request->name,
-            'userName' => $request->userName,
-            'email'    => $request->email,
-            'phone'    => $request->phone,
+            'name'      => $request->name,
+            'userName'  => $request->userName,
+            'email'     => $request->email,
+            'phone'     => $request->phone,
             'status'    => $request->status,
-            'role'    => $request->role,
-            'password' => $request->password,
+            'role'      => $request->role,
+            'password'  => $request->password,
             'thumbnail' => $thumb,
         ]);
 
@@ -93,7 +93,7 @@ class UserManagementController extends Controller
 
     public function editUser(User $user)
     {
-        return view('backend.user-management.user.edit')->with('user',$user);
+        return view('backend.user-management.user.edit')->with('user', $user);
     }
 
     public function updateUser(Request $request, User $user)
@@ -109,12 +109,12 @@ class UserManagementController extends Controller
             'role' => 'required|not_in:none'
         ]);
 
-        $thumb=$user->thumbnail['fileName'];
+        $thumb = $user->thumbnail['fileName'];
 
-        if(!empty($request->file('thumbnail'))){
-            Storage::delete('public/uploads/'.$thumb);
-            $thumb = time().'-'.$request->file('thumbnail')->getClientOriginalName();
-            $request->file('thumbnail')->storeAs('public/uploads',$thumb);
+        if (!empty($request->file('thumbnail'))) {
+            Storage::delete('public/uploads/' . $thumb);
+            $thumb = time() . '-' . $request->file('thumbnail')->getClientOriginalName();
+            $request->file('thumbnail')->storeAs('public/uploads', $thumb);
         }
 
         User::find($user->id)->update([
@@ -129,12 +129,12 @@ class UserManagementController extends Controller
         ]);
 
         $msg = 'User added successfully';
-        return redirect()->route('user.management.index')->with('success',$msg);
+        return redirect()->route('user.management.index')->with('success', $msg);
     }
 
     public function destroyUser(User $user)
     {
-        Storage::delete('public/uploads/'.$user->thumbnail['fileName']);
+        Storage::delete('public/uploads/' . $user->thumbnail['fileName']);
         $user->delete();
         $msg = 'User deleted Successfully';
         return redirect()->route('user.management.index')->with('success', $msg);

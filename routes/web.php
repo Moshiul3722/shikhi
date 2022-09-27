@@ -4,6 +4,7 @@ use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\CourseController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\UserManagementController;
+use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,8 @@ Route::get('/', function () {
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
+
+require __DIR__ . '/auth.php';
 
 Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
@@ -46,10 +49,15 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::match(['post', 'put'], 'category/store', [CategoryController::class, 'store'])->name('category.store');
     Route::delete('category/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
 
+    // Course Management
+    Route::resource('course', CourseController::class);
 
+    // file upload
+    // we don't need call any name because this upload call from javascript
+    Route::post('upload', [UploadController::class, 'store']);
 
     // Course Management
-    Route::resource('course',CourseController::class);
+    Route::resource('course', CourseController::class);
 });
 
 
