@@ -11,7 +11,12 @@ class UploadController extends Controller
         if ($request->hasFile('courseFile')) {
             $file = $request->file('courseFile');
             $filename = $file->getClientOriginalName();
-            $file->storeAs();
+            $folder = uniqid() . '-' . now()->timestamp;
+            $file->storeAs('avatars/tmp' . $folder, $filename);
+
+            return $folder;
         }
+
+        return '';
     }
 }
