@@ -1,13 +1,10 @@
 <?php
 
-<<<<<<< Updated upstream
-=======
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\CourseController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\UserManagementController;
 use App\Http\Controllers\UploadController;
->>>>>>> Stashed changes
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,9 +26,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-<<<<<<< Updated upstream
-require __DIR__.'/auth.php';
-=======
+require __DIR__ . '/auth.php';
+
 Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
@@ -64,4 +60,3 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
 
 require __DIR__ . '/auth.php';
->>>>>>> Stashed changes
