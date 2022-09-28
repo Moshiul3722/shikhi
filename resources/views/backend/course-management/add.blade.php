@@ -29,10 +29,7 @@
                                 Please enter a message in the textarea.
                             </div>
                         </div>
-                        <div>
-                            <p class="text-muted">Add Attached files here.</p>
-                            <input name="courseFile" type="file" multiple="multiple" id="courseFile">
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -46,25 +43,6 @@
                 </div>
             </div>
 
-            <div class="accordion card" id="accordionBordered">
-                <div class="accordion-item shadow">
-                    <h2 class="accordion-header" id="accordionborderedExample1">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#accor_borderedExamplecollapse1" aria-expanded="true"
-                            aria-controls="accor_borderedExamplecollapse1">
-                            What is User Interface Design?
-                        </button>
-                    </h2>
-                    <div id="accor_borderedExamplecollapse1" class="accordion-collapse collapse show"
-                        aria-labelledby="accordionborderedExample1" data-bs-parent="#accordionBordered">
-                        <div class="accordion-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                            3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                            laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua nulla assumenda shoreditch et.
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="card">
                 <div class="card-body">
                     <div>
@@ -100,6 +78,12 @@
                             placeholder="Enter Skills" type="text"
                             value="UI/UX, Figma, HTML, CSS, Javascript, C#, Nodejs" />
                     </div>
+
+                    <div>
+                            <p class="text-muted">Add Attached files here.</p>
+                            <input name="courseFile" type="file" multiple="multiple" id="courseFile">
+                        </div>
+
                 </div>
                 <!-- end card body -->
             </div>
