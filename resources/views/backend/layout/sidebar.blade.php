@@ -97,20 +97,20 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{request()->routeIs('user.*')?'active':''}}" href="#sidebarCourseManagement" data-bs-toggle="collapse" role="button"
-                        aria-expanded="false" aria-controls="sidebarDashboards">
+                    <a class="nav-link menu-link {{request()->routeIs('course.*')?'active':''}}" href="#sidebarCourseManagement" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarCourseManagement">
                         <i class="ri-user-settings-line"></i> <span data-key="t-dashboards">Course
                             Management</span>
                     </a>
-                    <div class="collapse menu-dropdown {{request()->routeIs('user.*')?'show':''}}" id="sidebarCourseManagement">
+                    <div class="collapse menu-dropdown {{request()->routeIs('course.*')?'show':''}}" id="sidebarCourseManagement">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('course.index') }}" class="nav-link {{request()->routeIs('course.*')?'active':''}}" data-key="t-analytics">
+                                <a href="{{ route('course.index') }}" class="nav-link {{request()->routeIs('course.index')?'active':''}}" data-key="t-analytics">
                                     Course List
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('course.create') }}" class="nav-link {{request()->routeIs('course.*')?'active':''}}" data-key="t-analytics">
+                                <a href="{{ route('course.create') }}" class="nav-link {{request()->routeIs('course.create')?'active':''}}" data-key="t-analytics">
                                     Add Course
                                 </a>
                             </li>

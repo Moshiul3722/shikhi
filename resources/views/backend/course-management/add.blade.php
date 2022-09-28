@@ -3,7 +3,13 @@
 @section('page', 'Course')
 
 @section('page-content')
+<<<<<<< Updated upstream
     <div class="row">
+=======
+
+    <form action="{{ route('course.store') }}" class="row" method="POST" enctype="multipart/form-data">
+        @csrf
+>>>>>>> Stashed changes
         <div class="col-lg-8">
             <div class="card">
                 <div class="card-body">
@@ -12,14 +18,20 @@
                             <label for="courseTitle" class="form-label">Course Title</label>
                             <input type="text" class="form-control" id="courseTitle" name="courseTitle">
                         </div>
-                        <div class="col-md-6 col-sm-6">
+
+                        <div class="col-12">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea class="form-control description" id="description" name="description" rows="5"  placeholder="Course description here ..."></textarea>
+                        </div>
+                        <div class="col-12">
                             <label for="requirements" class="form-label">Requirements</label>
-                            <input type="text" class="form-control" id="requirements" name="requirements">
+                            <textarea class="form-control requirements" id="requirements" name="requirements" rows="5" placeholder="Course Requirements here ..."></textarea>
                         </div>
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-12">
                             <label for="audience" class="form-label">Audience</label>
-                            <input type="text" class="form-control" id="audience" name="audience">
+                            <textarea class="form-control audience" id="audience" name="audience" rows="5" placeholder="Course audience here ..."></textarea>
                         </div>
+<<<<<<< Updated upstream
                         <div class="col-12">
                             <label for="validationTextarea" class="form-label">Textarea</label>
                             <textarea class="form-control" rows="5" id="validationTextarea" placeholder="Required example textarea" required></textarea>
@@ -34,6 +46,12 @@
 
 
                         <!-- end dropzon-preview -->
+=======
+
+
+
+
+>>>>>>> Stashed changes
                     </div>
 
                         <div class="col-12">
@@ -51,6 +69,7 @@
         </div>
         <!-- end col -->
         <div class="col-lg-4">
+<<<<<<< Updated upstream
 
             <!-- Base Example -->
             <!-- Accordions Bordered -->
@@ -71,11 +90,18 @@
                             3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
                             laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua nulla assumenda shoreditch et.
                         </div>
+=======
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary waves-effect waves-light" type="submit">Add Course</button>
+>>>>>>> Stashed changes
                     </div>
                 </div>
 
 
             </div>
+<<<<<<< Updated upstream
 
 
 
@@ -118,12 +144,63 @@
                             data-choices-limit="Required Limit" placeholder="Enter Skills" type="text"
                             value="UI/UX, Figma, HTML, CSS, Javascript, C#, Nodejs" />
                     </div>
+=======
+
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Thumbnail</h5>
                 </div>
-                <!-- end card body -->
+                <div class="card-body">
+                    <input name="courseFile" name="thumbnail" type="file" multiple="multiple" id="courseFile">
+>>>>>>> Stashed changes
+                </div>
             </div>
-            <!-- end card -->
         </div>
+<<<<<<< Updated upstream
         <!-- end col -->
     </div>
     <!-- end row -->
 @endsection
+=======
+
+    </form>
+
+
+    <!-- end row -->
+@endsection
+
+
+@section('scripts')
+
+
+    <script>
+        // initialize the plugins
+        FilePond.registerPlugin(
+            FilePondPluginImagePreview,
+            FilePondPluginImageResize,
+            FilePondPluginImageTransform
+        );
+
+        const inputElement = document.querySelector('#courseFile');
+        const pond = FilePond.create(inputElement);
+
+        FilePond.setOptions({
+            storeAsFile: true
+            // server: {
+            //     url: '{{ route('upload') }}',
+            //     headers: {
+            //         'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            //     }
+            // }
+        });
+
+        // Add tinymce editor
+        tinymce.init({
+            selector: 'textarea.description,textarea.requirements,textarea.audience',
+            plugins: 'code table lists',
+            browser_spellcheck: true,
+            toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table'
+        });
+    </script>
+@endsection
+>>>>>>> Stashed changes

@@ -711,10 +711,21 @@
 
 <!-- App js -->
 <script src="{{ asset('backend/assets/js/app.js') }}"></script>
+
+
+@yield('scripts')
+<script>
+    $(document).ready(function() {
+            setTimeout(() => {
+                $(".alert-success").slideUp("slow");
+            }, 3000);
+        });
+</script>
 </body>
 
 </html>
 
+<<<<<<< Updated upstream
 
 <script>
 
@@ -735,3 +746,5 @@
         }, 3000);
     });
 </script>
+=======
+>>>>>>> Stashed changes

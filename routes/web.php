@@ -43,7 +43,13 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::match(['post', 'put'], 'category/store', [CategoryController::class, 'store'])->name('category.store');
     Route::delete('category/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
 
+<<<<<<< Updated upstream
 
+=======
+    // file upload
+    // we don't need call any name because this upload call from javascript
+    Route::post('upload', [UploadController::class, 'store'])->name('upload');
+>>>>>>> Stashed changes
 
     // Course Management
     Route::resource('course',CourseController::class);
