@@ -27,11 +27,13 @@
     <!-- FilePond styles -->
     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
     <!-- Add plugin styles -->
-    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+        rel="stylesheet">
 
 
-<!-- tiny editor Js -->
-<script src="https://cdn.tiny.cloud/1/y5ceq8cxh6oivxq371ywid0ezemdwg185q879rp22231kpik/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <!-- tiny editor Js -->
+    <script src="https://cdn.tiny.cloud/1/y5ceq8cxh6oivxq371ywid0ezemdwg185q879rp22231kpik/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
 
     <style>
         body {

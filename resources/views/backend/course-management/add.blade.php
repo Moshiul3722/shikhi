@@ -4,7 +4,8 @@
 
 @section('page-content')
 
-    <form action="" class="row">
+    <form action="{{ route('course.store') }}" method="POST" class="row">
+        @csrf
         <div class="col-lg-8">
             <div class="card">
                 <div class="card-body">
@@ -16,19 +17,16 @@
                         <div class="col-md-6 col-sm-6">
                             <label for="requirements" class="form-label">Requirements</label>
                             <textarea class="form-control requirements" name="requirements" rows="5" id="requirements"
-                                placeholder="Required example textarea"></textarea>
+                                placeholder="Requirements here..."></textarea>
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <label for="audience" class="form-label">Audience</label>
-                            <textarea class="form-control audience" name="audience" rows="5" id="audience"
-                                placeholder="Required example textarea"></textarea>
+                            <textarea class="form-control audience" name="audience" rows="5" id="audience" placeholder="Audience here..."></textarea>
                         </div>
-
                         <div class="col-12">
                             <label for="description" class="form-label">Description</label>
                             <textarea class="form-control description" name="description" rows="5" id="description"
-                                placeholder="Required example textarea"></textarea>
-
+                                placeholder="Description here..."></textarea>
                         </div>
 
                     </div>
@@ -39,7 +37,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-grid gap-2">
-                        <button class="btn btn-primary waves-effect waves-light" type="button">Add Course</button>
+                        <button class="btn btn-primary waves-effect waves-light" type="submit">Add Course</button>
                     </div>
                 </div>
             </div>
@@ -47,12 +45,11 @@
             <div class="card">
                 <div class="card-body">
                     <div>
-                        <label for="choices-privacy-status-input" class="form-label">Visibility</label>
-                        <select class="form-select" data-choices data-choices-search-false
-                            id="choices-privacy-status-input">
-                            <option value="Private" selected>Select one...</option>
-                            <option value="Team">Active</option>
-                            <option value="Public">Inactive</option>
+                        <label for="visibility" class="form-label">Visibility</label>
+                        <select class="form-select" name="visibility" id="visibility">
+                            <option value="none">Select one...</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
                         </select>
                     </div>
                 </div>
@@ -66,25 +63,18 @@
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
-                        <label for="choices-categories-input" class="form-label">Categories</label>
-                        <select class="form-select" data-choices data-choices-search-false id="choices-categories-input">
-                            <option value="Designing" selected>Designing</option>
-                            <option value="Development">Development</option>
+                        <label for="category" class="form-label">Category</label>
+                        <select class="form-select" name="category" id="category">
+                            <option value="none">Select one...</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
                         </select>
                     </div>
-
-                    <div>
-                        <label for="choices-text-input" class="form-label">Skills</label>
-                        <input class="form-control" id="choices-text-input" data-choices data-choices-limit="Required Limit"
-                            placeholder="Enter Skills" type="text"
-                            value="UI/UX, Figma, HTML, CSS, Javascript, C#, Nodejs" />
-                    </div>
-
                     <div>
                         <p class="text-muted">Add Attached files here.</p>
                         <input name="courseFile" type="file" multiple="multiple" id="courseFile">
                     </div>
-
                 </div>
                 <!-- end card body -->
             </div>
@@ -111,7 +101,13 @@
         const pond = FilePond.create(inputElement);
 
         FilePond.setOptions({
-            server: '/upload'
+            storeAsFile: true
+            // server: {
+            //     url: '{{ route('upload') }}',
+            //     headers: {
+            //         'X-CSRF-Token': '{{ csrf_token() }}'
+            //     }
+            // }
         });
 
 

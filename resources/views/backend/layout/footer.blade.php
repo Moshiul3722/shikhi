@@ -699,7 +699,7 @@
 
 
 
-<!-- Add plugin scripts -->
+<!-- Add Filepond plugin scripts -->
 <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
 <script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
 <script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
@@ -707,7 +707,7 @@
 <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
 
 
-<script src="{{ asset('backend') }}/assets/js/pages/form-file-upload.init.js"></script>
+
 
 <!-- App js -->
 <script src="{{ asset('backend/assets/js/app.js') }}"></script>
@@ -726,4 +726,3 @@
 </body>
 
 </html>
-

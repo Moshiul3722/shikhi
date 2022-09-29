@@ -43,7 +43,6 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     // Route::post('user-role/store', [UserManagementController::class, 'roleStore'])->name('role.store');
     Route::match(['post', 'put'], 'user-role/store', [UserManagementController::class, 'roleStore'])->name('role.store');
 
-
     // Category Management
     Route::get('category', [CategoryController::class, 'index'])->name('category.index');
     Route::match(['post', 'put'], 'category/store', [CategoryController::class, 'store'])->name('category.store');
@@ -52,12 +51,12 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     // Course Management
     Route::resource('course', CourseController::class);
 
-    // file upload
-    // we don't need call any name because this upload call from javascript
-    Route::post('upload', [UploadController::class, 'store']);
-
     // Course Management
     Route::resource('course', CourseController::class);
+
+    // file upload
+    // we don't need call any name because this upload call from javascript
+    Route::post('upload', [UploadController::class, 'store'])->name('upload');
 });
 
 
