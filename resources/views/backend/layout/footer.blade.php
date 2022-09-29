@@ -711,7 +711,19 @@
 
 <!-- App js -->
 <script src="{{ asset('backend/assets/js/app.js') }}"></script>
+
+
+
+<script>
+    $(document).ready(function() {
+        setTimeout(() => {
+            $(".alert-success").slideUp("slow");
+        }, 3000);
+    });
+</script>
+
+@yield('scripts')
 </body>
 
 </html>
-@yield('scripts')
+

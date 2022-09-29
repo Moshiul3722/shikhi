@@ -15,19 +15,20 @@
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <label for="requirements" class="form-label">Requirements</label>
-                            <input type="text" class="form-control" id="requirements" name="requirements">
+                            <textarea class="form-control requirements" name="requirements" rows="5" id="requirements"
+                                placeholder="Required example textarea"></textarea>
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <label for="audience" class="form-label">Audience</label>
-                            <input type="text" class="form-control" id="audience" name="audience">
+                            <textarea class="form-control audience" name="audience" rows="5" id="audience"
+                                placeholder="Required example textarea"></textarea>
                         </div>
 
                         <div class="col-12">
-                            <label for="validationTextarea" class="form-label">Textarea</label>
-                            <textarea class="form-control" rows="5" id="validationTextarea" placeholder="Required example textarea" required></textarea>
-                            <div class="invalid-feedback">
-                                Please enter a message in the textarea.
-                            </div>
+                            <label for="description" class="form-label">Description</label>
+                            <textarea class="form-control description" name="description" rows="5" id="description"
+                                placeholder="Required example textarea"></textarea>
+
                         </div>
 
                     </div>
@@ -80,9 +81,9 @@
                     </div>
 
                     <div>
-                            <p class="text-muted">Add Attached files here.</p>
-                            <input name="courseFile" type="file" multiple="multiple" id="courseFile">
-                        </div>
+                        <p class="text-muted">Add Attached files here.</p>
+                        <input name="courseFile" type="file" multiple="multiple" id="courseFile">
+                    </div>
 
                 </div>
                 <!-- end card body -->
@@ -100,11 +101,11 @@
 
     <script>
         // initialize the plugins
-        // FilePond.registerPlugin(
-        //     FilePondPluginImagePreview,
-        //     FilePondPluginImageResize,
-        //     FilePondPluginImageTransform
-        // );
+        FilePond.registerPlugin(
+            FilePondPluginImagePreview,
+            FilePondPluginImageResize,
+            FilePondPluginImageTransform
+        );
 
         const inputElement = document.querySelector('#courseFile');
         const pond = FilePond.create(inputElement);
@@ -113,10 +114,14 @@
             server: '/upload'
         });
 
-        $(document).ready(function() {
-            setTimeout(() => {
-                $(".alert-success").slideUp("slow");
-            }, 3000);
+
+        tinymce.init({
+            selector: 'textarea.description,textarea.requirements,textarea.audience',
+            plugins: 'a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker',
+            toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter image editimage pageembed permanentpen table tableofcontents',
+            toolbar_mode: 'floating',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
         });
     </script>
 @endsection
