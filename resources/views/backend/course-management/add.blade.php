@@ -4,7 +4,7 @@
 
 @section('page-content')
 
-    <form action="{{ route('course.store') }}" method="POST" class="row">
+    <form action="{{ route('course.store') }}" method="POST" class="row" enctype="multipart/form-data">
         @csrf
         <div class="col-lg-8">
             <div class="card">
@@ -18,23 +18,6 @@
                                 <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
                             @enderror
                         </div>
-                        <div class="col-md-6 col-sm-6">
-                            <label for="requirements" class="form-label">Requirements</label>
-                            <textarea class="form-control requirements" name="requirements" rows="5" id="requirements"
-                                placeholder="Requirements here...">{{ old('requirements') }}</textarea>
-                            @error('requirements')
-                                <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
-                            @enderror
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <label for="audience" class="form-label">Audience</label>
-                            <textarea class="form-control audience" name="audience" rows="5" id="audience" placeholder="Audience here...">
-                                {{ old('audience') }}
-                            </textarea>
-                            @error('audience')
-                                <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
-                            @enderror
-                        </div>
                         <div class="col-12">
                             <label for="description" class="form-label">Description</label>
                             <textarea class="form-control description" name="description" rows="5" id="description"
@@ -43,6 +26,24 @@
                                 <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
                             @enderror
                         </div>
+                        <div class="col-md-12 col-sm-12">
+                            <label for="requirements" class="form-label">Requirements</label>
+                            <textarea class="form-control requirements" name="requirements" rows="5" id="requirements"
+                                placeholder="Requirements here...">{{ old('requirements') }}</textarea>
+                            @error('requirements')
+                                <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
+                            @enderror
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <label for="audience" class="form-label">Audience</label>
+                            <textarea class="form-control audience" name="audience" rows="5" id="audience" placeholder="Audience here...">
+                                {{ old('audience') }}
+                            </textarea>
+                            @error('audience')
+                                <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
+                            @enderror
+                        </div>
+
 
                     </div>
                 </div>
@@ -65,9 +66,9 @@
                             <option value="none" {{ old('visibility') == 'none' ? 'selected' : '' }}>Select
                                 Visibility
                             </option>
-                            <option value="private" {{ old('visibility') == 'private' ? 'selected' : '' }}>Private
+                            <option value="active" {{ old('visibility') == 'active' ? 'selected' : '' }}>Private
                             </option>
-                            <option value="public" {{ old('visibility') == 'public' ? 'selected' : '' }}>
+                            <option value="inactive" {{ old('visibility') == 'inactive' ? 'selected' : '' }}>
                                 Public
                             </option>
                         </select>
@@ -111,8 +112,8 @@
                     </div>
                     <div>
                         <label for="thumbnail" class="form-label">Thumbnail</label>
-                        <input name="thumbnail" type="file" multiple="multiple" id="thumbnail"
-                            value="{{ old('thumbnail') }}">
+                        <input type="file" class="filepond filepond-input-circle" name="thumbnail"
+                            accept="image/png, image/jpeg, image/gif" id="thumbnail"/>
                         @error('thumbnail')
                             <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
                         @enderror

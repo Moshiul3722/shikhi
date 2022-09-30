@@ -44,8 +44,6 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $request->validate([
             'courseTitle'  => 'required|max:255|string',
             'description'  => 'required',
@@ -56,14 +54,13 @@ class CourseController extends Controller
             'category'      => 'required|not_in:none',
             'thumbnail'    => 'required',
         ]);
-        // dd($request->thumbnail);
-        // dd($request->file('thumbnail'));
+
         $thumb = '';
         if (!empty($request->file('thumbnail'))) {
             $thumb = time() . '-' . $request->file('thumbnail')->getClientOriginalName();
             $request->file('thumbnail')->storeAs('public/uploads', $thumb);
         }
-        dd($thumb);
+
         Course::create([
             'name' => $request->courseTitle,
             'slug' => Str::slug($request->courseTitle),
@@ -73,7 +70,7 @@ class CourseController extends Controller
             'status' => $request->visibility,
             'category_id' => $request->category,
             'teacher_id' => $request->teacher,
-            'thumbnail' => $thumb,
+            'thumbnail' => $thumb
         ]);
 
         $msg = 'Course added successfully';

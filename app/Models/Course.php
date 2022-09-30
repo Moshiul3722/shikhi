@@ -21,4 +21,18 @@ class Course extends Model
     {
         return $this->belongsTo(User::class, 'teacher_id', 'id');
     }
+
+    public function getThumbnailAttribute($name)
+    {
+        if (str_starts_with($name, 'http')) {
+            return [
+                'url'      => $name,
+            ];
+        } else {
+            return [
+                'url'      => asset('storage/uploads/' . $name),
+                'fileName' => $name
+            ];
+        }
+    }
 }

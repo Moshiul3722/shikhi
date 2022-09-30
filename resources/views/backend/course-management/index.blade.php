@@ -25,8 +25,10 @@
         @forelse ($courses as $course )
             <tr>
             <th scope="row">1</th>
+            <td>
+            <img style="width: 35px" src="{{$course->thumbnail['url']}}" alt="" srcset="">
+            </td>
             <td>{{$course->category->name}}</td>
-            <td>Nov 14, 2021</td>
             <td>$2,410</td>
             <td>$2,410</td>
             <td>$2,410</td>
