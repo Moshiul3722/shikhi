@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -24,5 +26,8 @@ class DatabaseSeeder extends Seeder
             'image'             =>  'https://random.imagecdn.app/100/100',
             'password'          =>  bcrypt('123')
         ]);
+
+        // Category
+        Category::factory(10)->create();
     }
 }

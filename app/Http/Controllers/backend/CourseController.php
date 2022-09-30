@@ -8,6 +8,7 @@ use Illuminate\support\Str;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\TemporaryFile;
+use App\Models\User;
 
 class CourseController extends Controller
 {
@@ -31,6 +32,7 @@ class CourseController extends Controller
     {
         return view('backend.course-management.add')->with([
             'categories' => Category::orderBy('name', 'ASC')->get(),
+            'teachers' => User::orderBy('name', 'ASC')->get(),
         ]);
     }
 
@@ -42,41 +44,40 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+
 
         $request->validate([
             'courseTitle'  => 'required|max:255|string',
             'description'  => 'required',
             'requirements' => 'required|string',
+            'audience'     => 'required|string',
             'visibility'   => 'required|not_in:none',
-            'audience'     => 'required',
-            'category'     => 'required|not_in:none',
-            'courseFile'    => 'image|mimes:png,jpg,jpeg|max:2048',
+            'teacher'       => 'required|not_in:none',
+            'category'      => 'required|not_in:none',
+            'thumbnail'    => 'required',
         ]);
-
+        // dd($request->thumbnail);
+        // dd($request->file('thumbnail'));
         $thumb = '';
-        if (!empty($request->file('courseFile'))) {
-            $thumb = time() . '-' . $request->file('courseFile')->getClientOriginalName();
-            $request->file('courseFile')->storeAs('public/uploads', $thumb);
+        if (!empty($request->file('thumbnail'))) {
+            $thumb = time() . '-' . $request->file('thumbnail')->getClientOriginalName();
+            $request->file('thumbnail')->storeAs('public/uploads', $thumb);
         }
-
-        $course = Course::create([
+        dd($thumb);
+        Course::create([
             'name' => $request->courseTitle,
             'slug' => Str::slug($request->courseTitle),
             'description' => $request->description,
             'requirements' => $request->requirements,
             'audience' => $request->audience,
-            'category_id' => 2,
-            'teacher_id' => 2,
+            'status' => $request->visibility,
+            'category_id' => $request->category,
+            'teacher_id' => $request->teacher,
             'thumbnail' => $thumb,
         ]);
 
-        // $temporaryFile = TemporaryFile::where('folder', $request->courseFile)->first();
-        // if ($temporaryFile) {
-        //     $course->addMedia(storage_path('app/public/avatars/temp' . $request->courseFile . '/' . $temporaryFile->filename))->toMediaCollection('courseFile');
-        //     rmdir(storage_path('app/public/avatars/temp' . $request->courseFile));
-        //     $temporaryFile->delete();
-        // }
+        $msg = 'Course added successfully';
+        return redirect()->route('course.index')->with('success', $msg);
     }
 
     /**
