@@ -1,11 +1,12 @@
 @extends('backend.layout.master')
 @section('title', 'Shikhi | Dashboard')
-@section('page', 'Add Course')
+@section('page', 'Edit Course')
 
 @section('page-content')
 
-    <form action="{{ route('course.store') }}" method="POST" class="row" enctype="multipart/form-data">
+    <form action="{{ route('course.update', $course->id) }}" method="POST" class="row" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
         <div class="col-lg-8">
             <div class="card">
                 <div class="card-body">
@@ -13,7 +14,7 @@
                         <div class="col-12">
                             <label for="courseTitle" class="form-label">Course Title</label>
                             <input type="text" class="form-control" id="courseTitle" name="courseTitle"
-                                value="{{ old('courseTitle') }}">
+                                value="{{ $course->name }}">
                             @error('courseTitle')
                                 <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
                             @enderror
@@ -21,7 +22,7 @@
                         <div class="col-12">
                             <label for="description" class="form-label">Description</label>
                             <textarea class="form-control description" name="description" rows="5" id="description"
-                                placeholder="Description here..."> {{ old('description') }}</textarea>
+                                placeholder="Description here..."> {{ $course->description }}</textarea>
                             @error('description')
                                 <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
                             @enderror
@@ -29,7 +30,7 @@
                         <div class="col-md-12 col-sm-12">
                             <label for="requirements" class="form-label">Requirements</label>
                             <textarea class="form-control requirements" name="requirements" rows="5" id="requirements"
-                                placeholder="Requirements here...">{{ old('requirements') }}</textarea>
+                                placeholder="Requirements here...">{{ $course->requirements }}</textarea>
                             @error('requirements')
                                 <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
                             @enderror
@@ -37,7 +38,7 @@
                         <div class="col-md-12 col-sm-12">
                             <label for="audience" class="form-label">Audience</label>
                             <textarea class="form-control audience" name="audience" rows="5" id="audience" placeholder="Audience here...">
-                                {{ old('audience') }}
+                                {{ $course->audience }}
                             </textarea>
                             @error('audience')
                                 <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
@@ -53,7 +54,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-grid gap-2">
-                        <button class="btn btn-primary waves-effect waves-light" type="submit">Add Course</button>
+                        <button class="btn btn-info waves-effect waves-light" type="submit">Edit Course</button>
                     </div>
                 </div>
             </div>
@@ -66,10 +67,10 @@
                             <option value="none" {{ old('visibility') == 'none' ? 'selected' : '' }}>Select
                                 Visibility
                             </option>
-                            <option value="active" {{ old('visibility') == 'active' ? 'selected' : '' }}>Private
+                            <option value="active" {{ $course->status == 'active' ? 'selected' : '' }}>
+                                Private
                             </option>
-                            <option value="inactive" {{ old('visibility') == 'inactive' ? 'selected' : '' }}>
-                                Public
+                            <option value="inactive" {{ $course->status == 'inactive' ? 'selected' : '' }}>Public
                             </option>
                         </select>
                         @error('visibility')
@@ -91,7 +92,9 @@
                         <select class="form-select" name="teacher" id="teacher">
                             <option value="none">Select one...</option>
                             @foreach ($teachers as $teacher)
-                                <option value="{{ $teacher->id }}">{{ $teacher->name }}</option>
+                                <option value="{{ $teacher->id }}"
+                                    {{ $teacher->id == $course->teacher_id ? 'selected' : '' }}>{{ $teacher->name }}
+                                </option>
                             @endforeach
                         </select>
                         @error('teacher')
@@ -103,20 +106,25 @@
                         <select class="form-select" name="category" id="category">
                             <option value="none">Select one...</option>
                             @foreach ($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                <option value="{{ $category->id }}"
+                                    {{ $category->id == $course->category_id ? 'selected' : '' }}>{{ $category->name }}
+                                </option>
                             @endforeach
                         </select>
                         @error('category')
                             <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
                         @enderror
                     </div>
-                    <div>
+                    <div class="overflow-hidden">
                         <label for="thumbnail" class="form-label">Thumbnail</label>
                         <input type="file" class="filepond filepond-input-circle" name="thumbnail"
                             accept="image/png, image/jpeg, image/gif" id="thumbnail" />
                         @error('thumbnail')
                             <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
                         @enderror
+                        <div>
+                            <img src="{{ $course->thumbnail['url'] }}" alt="" srcset="">
+                        </div>
                     </div>
                 </div>
                 <!-- end card body -->
@@ -145,6 +153,12 @@
 
         FilePond.setOptions({
             storeAsFile: true
+            // server: {
+            //     url: '{{ route('upload') }}',
+            //     headers: {
+            //         'X-CSRF-Token': '{{ csrf_token() }}'
+            //     }
+            // }
         });
 
         tinymce.init({

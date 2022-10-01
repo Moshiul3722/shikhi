@@ -685,7 +685,7 @@
 </div>
 
 <!-- JAVASCRIPT -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 <script src="{{ asset('./backend/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('./backend/assets/libs/simplebar/simplebar.min.js') }}"></script>
 <script src="{{ asset('./backend/assets/libs/node-waves/waves.min.js') }}"></script>

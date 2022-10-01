@@ -51,9 +51,6 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     // Course Management
     Route::resource('course', CourseController::class);
 
-    // Course Management
-    Route::resource('course', CourseController::class);
-
     // file upload
     // we don't need call any name because this upload call from javascript
     Route::post('upload', [UploadController::class, 'store'])->name('upload');
