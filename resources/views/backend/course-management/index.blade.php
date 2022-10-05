@@ -47,9 +47,8 @@
                                                     <i class="ri-settings-4-line"></i>
                                                 </span>
                                             </a>
-                                            <a href="javascript:void(0)"
-                                                data-url="{{ route('course.destroy', $course->id) }}"
-                                                class="link-danger fs-4 delect-course">
+                                            <a href="javascript:void(0)" onclick="deleteCourse({{ $course->id }})"
+                                                class="link-danger fs-4">
 
                                                 <span class="shikhiTT" data-bs-placement="top" title="Delete Course">
                                                     <i class="ri-delete-bin-5-line"></i>
@@ -89,37 +88,23 @@
             new bootstrap.Tooltip(t)
         });
 
-        $(document).ready(function() {
+        // Delete course
+        function deleteCourse(id) {
+            if (confirm("Are you sure you want to delete this course?") == true) {
+                let url = "{{ route('course.destroy', ':id') }}";
+                url = url.replace(':id', id);
 
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $("meta[name='csrf-token']").attr("content")
-                }
-            });
+                fetch(url, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRF-Token': $("meta[name='csrf-token']").attr('content')
+                    }
+                })
+                .then(() => window.location.reload());
+            }
+        }
 
 
-            $(document).on('click', '.delect-course', function() {
-
-                var courseURL = $(this).data('url');
-                var trObj = $(this);
-
-                if (confirm("Are you sure you want to delete this course?") == true) {
-                    $.ajax({
-                        url: courseURL,
-                        type: 'DELETE',
-                        dataType: 'json',
-                        success: function(data) {
-                            trObj.parents("tr").remove();
-                            location.reload(true);
-                            console.log('this is goru');
-                        }
-
-                    });
-                }
-
-            });
-
-        });
     </script>
 
 @endsection
