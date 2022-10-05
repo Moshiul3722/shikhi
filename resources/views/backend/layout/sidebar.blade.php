@@ -68,20 +68,26 @@
                 </li> <!-- end User Management Menu -->
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{request()->routeIs('user.*')?'active':''}}" href="#sidebarUserManagement" data-bs-toggle="collapse" role="button"
-                        aria-expanded="false" aria-controls="sidebarDashboards">
+                    <a class="nav-link menu-link {{ request()->routeIs('user.*') ? 'active' : '' }}"
+                        href="#sidebarUserManagement" data-bs-toggle="collapse" role="button" aria-expanded="false"
+                        aria-controls="sidebarDashboards">
                         <i class="ri-user-settings-line"></i> <span data-key="t-dashboards">User
                             Management</span>
                     </a>
-                    <div class="collapse menu-dropdown {{request()->routeIs('user.*')?'show':''}}" id="sidebarUserManagement">
+                    <div class="collapse menu-dropdown {{ request()->routeIs('user.*') ? 'show' : '' }}"
+                        id="sidebarUserManagement">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('user.management.index') }}" class="nav-link {{request()->routeIs('user.*')?'active':''}}" data-key="t-analytics">
+                                <a href="{{ route('user.management.index') }}"
+                                    class="nav-link {{ request()->routeIs('user.*') ? 'active' : '' }}"
+                                    data-key="t-analytics">
                                     Users
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('user.create') }}" class="nav-link {{request()->routeIs('user.*')?'active':''}}" data-key="t-analytics">
+                                <a href="{{ route('user.create') }}"
+                                    class="nav-link {{ request()->routeIs('user.*') ? 'active' : '' }}"
+                                    data-key="t-analytics">
                                     Add User
                                 </a>
                             </li>
@@ -91,27 +97,63 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{request()->routeIs('category.*')?'active':''}}" href="{{ route('category.index') }}">
+                    <a class="nav-link menu-link {{ request()->routeIs('category.*') ? 'active' : '' }}"
+                        href="{{ route('category.index') }}">
                         <i class="mdi mdi-bookmark-box-multiple-outline"></i> <span data-key="t-widgets">Category</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{request()->routeIs('user.*')?'active':''}}" href="#sidebarCourseManagement" data-bs-toggle="collapse" role="button"
-                        aria-expanded="false" aria-controls="sidebarDashboards">
+                    <a class="nav-link menu-link {{ request()->routeIs('user.*') ? 'active' : '' }}"
+                        href="#sidebarCourseManagement" data-bs-toggle="collapse" role="button" aria-expanded="false"
+                        aria-controls="sidebarDashboards">
                         <i class="ri-user-settings-line"></i> <span data-key="t-dashboards">Course
                             Management</span>
                     </a>
-                    <div class="collapse menu-dropdown {{request()->routeIs('user.*')?'show':''}}" id="sidebarCourseManagement">
+                    <div class="collapse menu-dropdown {{ request()->routeIs('user.*') ? 'show' : '' }}"
+                        id="sidebarCourseManagement">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('course.index') }}" class="nav-link {{request()->routeIs('course.*')?'active':''}}" data-key="t-analytics">
+                                <a href="{{ route('course.index') }}"
+                                    class="nav-link {{ request()->routeIs('course.*') ? 'active' : '' }}"
+                                    data-key="t-analytics">
                                     Course List
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('course.create') }}" class="nav-link {{request()->routeIs('course.*')?'active':''}}" data-key="t-analytics">
+                                <a href="{{ route('course.create') }}"
+                                    class="nav-link {{ request()->routeIs('course.*') ? 'active' : '' }}"
+                                    data-key="t-analytics">
                                     Add Course
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ request()->routeIs('lesson.*') ? 'active' : '' }}"
+                        href="#sidebarLessonManagement" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarLessonManagement">
+                        <i class="ri-user-settings-line"></i> <span data-key="t-dashboards">Lesson
+                            Management</span>
+                    </a>
+                    <div class="collapse menu-dropdown {{ request()->routeIs('lesson.*') ? 'show' : '' }}"
+                        id="sidebarLessonManagement">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{ route('lesson.index') }}"
+                                    class="nav-link {{ request()->routeIs('lesson.*') ? 'active' : '' }}"
+                                    data-key="t-analytics">
+                                    Lesson List
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('lesson.create') }}"
+                                    class="nav-link {{ request()->routeIs('lesson.*') ? 'active' : '' }}"
+                                    data-key="t-analytics">
+                                    Add Lesson
                                 </a>
                             </li>
 

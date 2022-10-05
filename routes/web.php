@@ -3,6 +3,7 @@
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\CourseController;
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\LessonController;
 use App\Http\Controllers\backend\UserManagementController;
 use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
@@ -51,9 +52,8 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     // Course Management
     Route::resource('course', CourseController::class);
 
-    // file upload
-    // we don't need call any name because this upload call from javascript
-    Route::post('upload', [UploadController::class, 'store'])->name('upload');
+    // Lesson Management
+    Route::resource('lesson', LessonController::class);
 });
 
 

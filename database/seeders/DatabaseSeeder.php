@@ -29,5 +29,11 @@ class DatabaseSeeder extends Seeder
 
         // Category
         Category::factory(10)->create();
+
+        // Course
+        \App\Models\Course::factory(15)->create();
+
+        // Lesson
+        \App\Models\Lesson::factory(15)->create();
     }
 }

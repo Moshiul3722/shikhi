@@ -49,7 +49,6 @@
                                             </a>
                                             <a href="javascript:void(0)" onclick="deleteCourse({{ $course->id }})"
                                                 class="link-danger fs-4">
-
                                                 <span class="shikhiTT" data-bs-placement="top" title="Delete Course">
                                                     <i class="ri-delete-bin-5-line"></i>
                                                 </span>
@@ -95,16 +94,14 @@
                 url = url.replace(':id', id);
 
                 fetch(url, {
-                    method: 'DELETE',
-                    headers: {
-                        'X-CSRF-Token': $("meta[name='csrf-token']").attr('content')
-                    }
-                })
-                .then(() => window.location.reload());
+                        method: 'DELETE',
+                        headers: {
+                            'X-CSRF-Token': $("meta[name='csrf-token']").attr('content')
+                        }
+                    })
+                    .then(() => window.location.reload());
             }
         }
-
-
     </script>
 
 @endsection
