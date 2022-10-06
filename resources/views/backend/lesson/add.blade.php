@@ -51,7 +51,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-grid gap-2">
-                        <button class="btn btn-info waves-effect waves-light" type="submit">Edit Lesson</button>
+                        <button class="btn btn-success waves-effect waves-light" type="submit">Add Lesson</button>
                     </div>
                 </div>
             </div>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use Illuminate\support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LessonController extends Controller
 {
@@ -54,8 +55,10 @@ class LessonController extends Controller
             'visibility' => $request->visibility,
         ]);
 
-        $msg = 'Lesson added successfully';
-        return redirect()->route('lesson.index')->with('success', $msg);
+        Alert::success('Lesson added successfully','We have added this lesson to our course');
+        // $msg = 'Lesson added successfully';
+        return redirect()->route('lesson.index');
+        // ->with('success', $msg);
     }
 
     /**
@@ -92,7 +95,25 @@ class LessonController extends Controller
      */
     public function update(Request $request, Lesson $lesson)
     {
-        //
+        $request->validate([
+            'lessonTitle'  => 'required|max:255|string',
+            'course'  => 'required',
+            'content' => 'required|string',
+            'visibility'   => 'required|not_in:none',
+        ]);
+
+        $lesson->update([
+            'name' => $request->lessonTitle,
+            'slug' => Str::slug($request->lessonTitle),
+            'course_id' => $request->course,
+            'content' => $request->content,
+            'visibility' => $request->visibility,
+        ]);
+
+        Alert::success('Lesson updated successfully','You have update this lesson');
+        // $msg = 'Lesson added successfully';
+        return redirect()->route('lesson.index');
+        // ->with('success', $msg);
     }
 
     /**
@@ -104,7 +125,6 @@ class LessonController extends Controller
     public function destroy(Lesson $lesson)
     {
         $lesson->delete();
-        $msg = 'Lesson delete successfully';
-        return redirect()->route('lesson.index')->with('success', $msg);
+        return redirect()->route('lesson.index');
     }
 }

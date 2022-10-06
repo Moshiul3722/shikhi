@@ -107,7 +107,7 @@
                     <a class="nav-link menu-link {{ request()->routeIs('user.*') ? 'active' : '' }}"
                         href="#sidebarCourseManagement" data-bs-toggle="collapse" role="button" aria-expanded="false"
                         aria-controls="sidebarDashboards">
-                        <i class="ri-user-settings-line"></i> <span data-key="t-dashboards">Course
+                        <i class="ri-folder-settings-line"></i> <span data-key="t-dashboards">Course
                             Management</span>
                     </a>
                     <div class="collapse menu-dropdown {{ request()->routeIs('user.*') ? 'show' : '' }}"
@@ -136,7 +136,7 @@
                     <a class="nav-link menu-link {{ request()->routeIs('lesson.*') ? 'active' : '' }}"
                         href="#sidebarLessonManagement" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarLessonManagement">
-                        <i class="ri-user-settings-line"></i> <span data-key="t-dashboards">Lesson
+                        <i class="ri-book-mark-line"></i> <span data-key="t-dashboards">Lesson
                             Management</span>
                     </a>
                     <div class="collapse menu-dropdown {{ request()->routeIs('lesson.*') ? 'show' : '' }}"

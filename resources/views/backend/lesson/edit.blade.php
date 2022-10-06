@@ -40,10 +40,6 @@
                                 <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
                             @enderror
                         </div>
-
-
-
-
                     </div>
                 </div>
             </div>
@@ -65,10 +61,10 @@
                             <option value="none" {{ old('visibility') == 'none' ? 'selected' : '' }}>Select
                                 Visibility
                             </option>
-                            <option value="active" {{ $course->status == 'active' ? 'selected' : '' }}>
+                            <option value="private" {{ $course->status == 'private' ? 'selected' : '' }}>
                                 Private
                             </option>
-                            <option value="inactive" {{ $course->status == 'inactive' ? 'selected' : '' }}>Public
+                            <option value="public" {{ $course->status == 'public' ? 'selected' : '' }}>Public
                             </option>
                         </select>
                         @error('visibility')
