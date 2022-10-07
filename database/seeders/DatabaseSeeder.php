@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,6 +19,11 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
+
+        Role::create(['name' => 'super-admin']);
+        Role::create(['name' => 'student']);
+        Role::create(['name' => 'teacher']);
+
         \App\Models\User::factory()->create([
             'name'              =>  'Gazi Moshiul',
             'userName'          =>  'Moshiul',
@@ -25,7 +31,7 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' =>  now(),
             'image'             =>  'https://random.imagecdn.app/100/100',
             'password'          =>  bcrypt('123')
-        ]);
+        ])->assignRole('super-admin');
 
         // Category
         Category::factory(10)->create();

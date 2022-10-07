@@ -30,7 +30,7 @@ class CourseFactory extends Factory
             'status'       => $type[rand(0, 1)],
             'category_id'  => Category::all()->random()->id,
             'teacher_id'   => User::all()->random()->id,
-            'thumbnail'    => 'https://i.pravatar.cc/300?img=2',
+            'thumbnail'    => 'https://source.unsplash.com/random/400x250?men,women&' . rand(2, 24345),
         ];
     }
 }

@@ -721,7 +721,7 @@
         }, 3000);
     });
 </script>
-@include('sweetalert::alert')
+{{-- @include('sweetalert::alert') --}}
 @yield('scripts')
 </body>
 

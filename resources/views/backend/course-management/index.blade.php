@@ -55,14 +55,14 @@
                                             </a> --}}
 
                                             <a href="javascript:void(0)" class="link-danger fs-15"
-                                                    onclick="deleteRecord({{ $course->id }})"><i
-                                                        class="ri-delete-bin-line"></i></a>
-                                                <form id="delete-form-{{ $course->id }}"
-                                                    action="{{ route('course.destroy', $course->id) }}" method="POST"
-                                                    style="display: none">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                </form>
+                                                onclick="deleteRecord({{ $course->id }})"><i
+                                                    class="ri-delete-bin-line"></i></a>
+                                            <form id="delete-form-{{ $course->id }}"
+                                                action="{{ route('course.destroy', $course->id) }}" method="POST"
+                                                style="display: none">
+                                                @csrf
+                                                @method('DELETE')
+                                            </form>
                                         </div>
 
                                     </td>
@@ -100,22 +100,22 @@
         // Delete course
 
 
-        function deleteRecord(id) {
-            Swal.fire({
-                html: '<div class="mt-3"><div class="mt-4 pt-2 fs-15 mx-5"><h4>Are you Sure ?</h4><p class="text-muted mx-4 mb-0">Are you want to delete?</p></div></div>',
-                showCancelButton: !0,
-                confirmButtonClass: "btn btn-primary w-xs me-2 mb-1",
-                confirmButtonText: "Yes, Delete It!",
-                cancelButtonClass: "btn btn-danger w-xs mb-1",
-                buttonsStyling: !1,
-                showCloseButton: false,
-            }).then((result) => {
-                if (result.value) {
-                    event.preventDefault();
-                    document.getElementById('delete-form-' + id).submit();
-                }
-            })
-        }
+        // function deleteRecord(id) {
+        //     Swal.fire({
+        //         html: '<div class="mt-3"><div class="mt-4 pt-2 fs-15 mx-5"><h4>Are you Sure ?</h4><p class="text-muted mx-4 mb-0">Are you want to delete?</p></div></div>',
+        //         showCancelButton: !0,
+        //         confirmButtonClass: "btn btn-primary w-xs me-2 mb-1",
+        //         confirmButtonText: "Yes, Delete It!",
+        //         cancelButtonClass: "btn btn-danger w-xs mb-1",
+        //         buttonsStyling: !1,
+        //         showCloseButton: false,
+        //     }).then((result) => {
+        //         if (result.value) {
+        //             event.preventDefault();
+        //             document.getElementById('delete-form-' + id).submit();
+        //         }
+        //     })
+        // }
 
 
         // function deleteCourse(id) {

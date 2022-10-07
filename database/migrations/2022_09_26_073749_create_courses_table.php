@@ -30,7 +30,6 @@ return new class extends Migration
         Schema::create('courses_users', function (Blueprint $table) {
             $table->unsignedBigInteger('course_id');
             $table->unsignedBigInteger('student_id');
-            $table->timestamps();
         });
     }
 
