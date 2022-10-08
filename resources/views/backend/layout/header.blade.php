@@ -23,6 +23,7 @@
     <link href="{{ asset('./backend/assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="{{ asset('./backend/assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
+    {{-- custom style --}}
     <link href="{{ asset('./backend/assets/css/style.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- FilePond styles -->

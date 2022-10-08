@@ -8,3 +8,7 @@ img.user_thumbnail {
     margin-top: 10px;
     border-radius: 4px;
 }
+img.shikhi-logo {
+    width: 8rem !important;
+    height: auto;
+}
