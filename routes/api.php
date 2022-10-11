@@ -22,5 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('login', [AuthController::class, 'login']);
 Route::get('courses', [ApiController::class, 'courses'])->middleware('auth:api');
+Route::get('course/{id}', [ApiController::class, 'course'])->middleware('auth:api');
 Route::get('categories', [ApiController::class, 'categories'])->middleware('auth:api');
 Route::get('lessons', [ApiController::class, 'lessons'])->middleware('auth:api');

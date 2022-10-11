@@ -22,6 +22,11 @@ class Course extends Model
         return $this->belongsTo(User::class, 'teacher_id', 'id');
     }
 
+    public function lesson()
+    {
+        return $this->hasMany(Lesson::class,'course_id','id');
+    }
+
     public function getThumbnailAttribute($name)
     {
         if (str_starts_with($name, 'http')) {

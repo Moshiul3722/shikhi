@@ -123,7 +123,6 @@
                             <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
                         @enderror
                         <div>
-                            <img src="{{ $course->thumbnail['url'] }}" alt="" srcset="">
                         </div>
                     </div>
                 </div>
@@ -145,20 +144,39 @@
         FilePond.registerPlugin(
             FilePondPluginImagePreview,
             FilePondPluginImageResize,
-            FilePondPluginImageTransform
+            FilePondPluginImageTransform,
+            FilePondPluginFilePoster
         );
 
         const inputElement = document.querySelector('#thumbnail');
         const pond = FilePond.create(inputElement);
 
         FilePond.setOptions({
-            storeAsFile: true
-            // server: {
-            //     url: '{{ route('upload') }}',
-            //     headers: {
-            //         'X-CSRF-Token': '{{ csrf_token() }}'
-            //     }
-            // }
+            storeAsFile: true,
+            files: [
+        {
+            // the server file reference
+            source: '12345',
+
+            // set type to local to indicate an already uploaded file
+            options: {
+                type: 'local',
+
+                // optional stub file information
+                file: {
+                    name: 'my-file.png',
+                    size: 3001025,
+                    type: 'image/png',
+                },
+
+                // pass poster property
+                metadata: {
+                    poster: '{{asset("storage/upload")}}',
+                },
+            },
+        },
+    ],
+
         });
 
         tinymce.init({
