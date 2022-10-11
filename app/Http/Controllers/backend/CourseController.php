@@ -59,7 +59,8 @@ class CourseController extends Controller
         $thumb = '';
         if (!empty($request->file('thumbnail'))) {
             $thumb = time() . '-' . $request->file('thumbnail')->getClientOriginalName();
-            $request->file('thumbnail')->storeAs('public/uploads', $thumb);
+            $thumb = str_replace( ' ', '-', $thumb );
+            $request->file( 'thumbnail' )->storeAs( 'public/uploads/course', $thumb );
         }
 
         Course::create([

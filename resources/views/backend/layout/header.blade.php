@@ -895,7 +895,7 @@
                                         <span
                                             class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{ Auth::user()->name }}</span>
                                         <span
-                                            class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">Founder</span>
+                                            class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">{{ucwords(str_replace('-',' ',Auth::user()->roles[0]->name))}}</span>
                                     </span>
                                 </span>
                             </button>
