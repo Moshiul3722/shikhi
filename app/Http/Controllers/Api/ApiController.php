@@ -30,7 +30,7 @@ class ApiController extends Controller
     {
         $course =
         DB::table('courses')
-        ->select('courses.*', 'lessons.name as lesson_name')
+        ->select('courses.*','lessons.name as lesson_name')
         ->join('lessons', 'lessons.course_id', '=', 'courses.id')
         ->where('courses.id', $id)
         ->get();
