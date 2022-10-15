@@ -28,20 +28,14 @@
 
     <!-- FilePond styles -->
     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
-    <link
-    href="https://unpkg.com/filepond-plugin-file-poster/dist/filepond-plugin-file-poster.css"
-    rel="stylesheet"/>
+    <link href="https://unpkg.com/filepond-plugin-file-poster/dist/filepond-plugin-file-poster.css" rel="stylesheet" />
     <!-- Add plugin styles -->
     <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
         rel="stylesheet">
 
-
-    <!-- tiny editor Js -->
-    <script src="https://cdn.tiny.cloud/1/y5ceq8cxh6oivxq371ywid0ezemdwg185q879rp22231kpik/tinymce/6/tinymce.min.js"
-        referrerpolicy="origin"></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+    <x-head.tinymce-config />
 
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <style>
@@ -898,7 +892,7 @@
                                         <span
                                             class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{ Auth::user()->name }}</span>
                                         <span
-                                            class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">{{ ucwords(str_replace('-',' ',Auth::user()->roles[0]->name)) }}</span>
+                                            class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">{{ ucwords(str_replace('-', ' ', Auth::user()->roles[0]->name)) }}</span>
                                     </span>
                                 </span>
                             </button>

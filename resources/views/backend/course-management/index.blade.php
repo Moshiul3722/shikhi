@@ -30,15 +30,15 @@
                                     <td>{{ $course->name }}</td>
                                     <td>
 
-                                        @if (count($course->lesson) > 0)
+                                        @if (count($course->lessons) > 0)
                                             <span
                                                 class="btn btn-primary border-0 position-relative px-0 py-0 avatar-xs rounded-circle badge-gradient-danger fs-18">
-                                                {{ count($course->lesson) }}
+                                                {{ count($course->lessons) }}
                                             </span>
                                         @else
-                                        <span
+                                            <span
                                                 class="btn btn-primary position-relative px-0 py-0 avatar-xs rounded-circle badge-outline-danger fs-18">
-                                                {{ count($course->lesson) }}
+                                                {{ count($course->lessons) }}
                                             </span>
                                             {{-- <span
                                                 class="badge rounded-pill badge-outline-danger">{{ count($course->lesson) }}

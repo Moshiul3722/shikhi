@@ -693,11 +693,8 @@
 <script src="{{ asset('./backend/assets/js/pages/plugins/lord-icon-2.1.0.js') }}"></script>
 <script src="{{ asset('./backend/assets/js/plugins.js') }}"></script>
 
-<!-- dropzone min -->
-<script src="{{ asset('backend') }}/assets/libs/dropzone/dropzone-min.js"></script>
+
 <!-- filepond js -->
-
-
 
 <!-- Add Filepond plugin scripts -->
 <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
@@ -707,13 +704,8 @@
 <!-- FilePond scripts -->
 <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
 
-
-
-
 <!-- App js -->
 <script src="{{ asset('backend/assets/js/app.js') }}"></script>
-
-
 
 <script>
     $(document).ready(function() {

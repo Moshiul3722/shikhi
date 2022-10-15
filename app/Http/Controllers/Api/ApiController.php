@@ -26,14 +26,9 @@ class ApiController extends Controller
             'category' => Category::get()
         ];
     }
-    public function course($id)
+    public function courseSingle($id)
     {
-        $course =
-        DB::table('courses')
-        ->select('courses.*','lessons.name as lesson_name')
-        ->join('lessons', 'lessons.course_id', '=', 'courses.id')
-        ->where('courses.id', $id)
-        ->get();
+        $course = Course::findOrFail($id);
         return [
             'error' => false,
             'course'=>$course
