@@ -20,25 +20,26 @@
                         </div>
                         <div class="col-12">
                             <label for="description" class="form-label">Description</label>
-                            <textarea class="form-control description" name="description" rows="5" id="description"
-                                placeholder="Description here..."> {{ old('description') }}</textarea>
+
+
+                            <x-tinymce-editor name="description">{{ old('description') }}</x-tinymce-editor>
+
                             @error('description')
                                 <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
                             @enderror
                         </div>
                         <div class="col-md-12 col-sm-12">
                             <label for="requirements" class="form-label">Requirements</label>
-                            <textarea class="form-control requirements" name="requirements" rows="5" id="requirements"
-                                placeholder="Requirements here...">{{ old('requirements') }}</textarea>
+                            <x-tinymce-editor name="requirements">{{ old('requirements') }}</x-tinymce-editor>
+
                             @error('requirements')
                                 <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
                             @enderror
                         </div>
                         <div class="col-md-12 col-sm-12">
                             <label for="audience" class="form-label">Audience</label>
-                            <textarea class="form-control audience" name="audience" rows="5" id="audience" placeholder="Audience here...">
-                                {{ old('audience') }}
-                            </textarea>
+                            <x-tinymce-editor name="audience">{{ old('audience') }}</x-tinymce-editor>
+
                             @error('audience')
                                 <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
                             @enderror

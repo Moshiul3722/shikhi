@@ -18,31 +18,31 @@
         document.getElementById("header-lang-img") &&
             ("en" == e
                 ? (document.getElementById("header-lang-img").src =
-                      "backend/assets/images/flags/us.svg")
+                      "/backend/assets/images/flags/us.svg")
                 : "sp" == e
                 ? (document.getElementById("header-lang-img").src =
-                      "backend/assets/images/flags/spain.svg")
+                      "/backend/assets/images/flags/spain.svg")
                 : "gr" == e
                 ? (document.getElementById("header-lang-img").src =
-                      "backend/assets/images/flags/germany.svg")
+                      "/backend/assets/images/flags/germany.svg")
                 : "it" == e
                 ? (document.getElementById("header-lang-img").src =
-                      "backend/assets/images/flags/italy.svg")
+                      "/backend/assets/images/flags/italy.svg")
                 : "ru" == e
                 ? (document.getElementById("header-lang-img").src =
-                      "backend/assets/images/flags/russia.svg")
+                      "/backend/assets/images/flags/russia.svg")
                 : "ch" == e
                 ? (document.getElementById("header-lang-img").src =
-                      "backend/assets/images/flags/china.svg")
+                      "/backend/assets/images/flags/china.svg")
                 : "fr" == e &&
                   (document.getElementById("header-lang-img").src =
-                      "backend/assets/images/flags/french.svg"),
+                      "/backend/assets/images/flags/french.svg"),
             localStorage.setItem("language", e),
             (b = localStorage.getItem("language")),
             (function () {
                 null == b && y(g);
                 var e = new XMLHttpRequest();
-                e.open("GET", "assets/lang/" + b + ".json"),
+            e.open("GET", "assets/lang/" + b + ".json"),
                     (e.onreadystatechange = function () {
                         var a;
                         4 === this.readyState &&

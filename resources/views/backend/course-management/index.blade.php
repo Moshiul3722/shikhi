@@ -27,17 +27,23 @@
                                         <img class="avatar-xs rounded-circle" src="{{getAssetUrl($course->thumbnail,'uploads')}}">
 
                                     </td>
-                                    <td>{{ $course->category->name }}</td>
+                                    <td>{{ $course->name }}</td>
                                     <td>
-                                        <button type="button"
-                                            class="btn btn-primary position-relative p-0 avatar-xs rounded">
-                                            <span class="avatar-title bg-transparent">
-                                                <i class="bx bxs-envelope"></i>
-                                            </span>
+
+                                        @if (count($course->lessons) > 0)
                                             <span
-                                                class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-1">23<span
-                                                    class="visually-hidden">20</span></span>
-                                        </button>
+                                                class="btn btn-primary border-0 position-relative px-0 py-0 avatar-xs rounded-circle badge-gradient-danger fs-18">
+                                                {{ count($course->lessons) }}
+                                            </span>
+                                        @else
+                                            <span
+                                                class="btn btn-primary position-relative px-0 py-0 avatar-xs rounded-circle badge-outline-danger fs-18">
+                                                {{ count($course->lessons) }}
+                                            </span>
+                                            {{-- <span
+                                                class="badge rounded-pill badge-outline-danger">{{ count($course->lesson) }}
+                                            </span> --}}
+                                        @endif
                                     </td>
                                     <td>{{ $course->status }}</td>
                                     <td>

@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\Lesson;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ApiController extends Controller
 {
@@ -24,11 +26,12 @@ class ApiController extends Controller
             'category' => Category::get()
         ];
     }
-    public function lessons()
+    public function courseSingle($id)
     {
+        $course = Course::findOrFail($id);
         return [
             'error' => false,
-            'category' => Category::get()
+            'course'=>$course
         ];
     }
 }

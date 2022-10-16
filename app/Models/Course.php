@@ -10,7 +10,7 @@ class Course extends Model
     use HasFactory;
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
-
+    protected $with = ['teacher', 'lessons', 'category'];
 
     public function category()
     {
@@ -22,17 +22,22 @@ class Course extends Model
         return $this->belongsTo(User::class, 'teacher_id', 'id');
     }
 
-    // public function getThumbnailAttribute($name)
-    // {
-    //     if (str_starts_with($name, 'http')) {
-    //         return [
-    //             'url'      => $name,
-    //         ];
-    //     } else {
-    //         return [
-    //             'url'      => asset('storage/uploads/' . $name),
-    //             'fileName' => $name
-    //         ];
-    //     }
-    // }
+    public function lessons()
+    {
+        return $this->hasMany(Lesson::class, 'course_id', 'id');
+    }
+
+    public function getThumbnailAttribute($name)
+    {
+        if (str_starts_with($name, 'http')) {
+            return [
+                'url'      => $name,
+            ];
+        } else {
+            return [
+                'url'      => asset('storage/uploads/' . $name),
+                'fileName' => $name
+            ];
+        }
+    }
 }
