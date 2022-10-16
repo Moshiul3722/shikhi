@@ -18,6 +18,20 @@
                                 <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
                             @enderror
                         </div>
+
+                        <div class="col-12">
+                            <label for="aboutLearn" class="form-label">What Will You Learn?</label>
+
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td class="p-0 border-0"><input type="text" class="form-control" id="courseTitle" name="courseTitle"></td><td class="p-0 border-0"></td>
+                                    </tr>
+                                </table>
+
+
+
+                        </div>
+
                         <div class="col-12">
                             <label for="description" class="form-label">Description</label>
 
