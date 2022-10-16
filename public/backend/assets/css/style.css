@@ -12,3 +12,10 @@ img.shikhi-logo {
     width: 8rem !important;
     height: auto;
 }
+.add-more-about-course {
+    padding: 0.1rem 0.5rem;
+}
+
+button.add-more-about-course i {
+    font-size: 1.3rem !important;
+}

@@ -22,14 +22,18 @@
                         <div class="col-12">
                             <label for="aboutLearn" class="form-label">What Will You Learn?</label>
 
-                                <table class="table table-striped">
-                                    <tr>
-                                        <td class="p-0 border-0"><input type="text" class="form-control" id="courseTitle" name="courseTitle"></td><td class="p-0 border-0"></td>
-                                    </tr>
-                                </table>
-
-
-
+                            <table class="table table-striped" id="about-course">
+                                <tr>
+                                    <td class="p-0 border-0"><input type="text" name="aboutCoureses[]"
+                                            class="form-control"></td>
+                                    <td class="p-0 border-0">
+                                        <!-- Outline Buttons -->
+                                        <button type="button"
+                                            class="btn btn-outline-secondary ms-2 waves-effect waves-light shadow-none add-more-about-course"><i
+                                                class="ri-add-fill"></i></button>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
 
                         <div class="col-12">
@@ -162,13 +166,26 @@
             storeAsFile: true
         });
 
-        tinymce.init({
-            selector: 'textarea.description,textarea.requirements,textarea.audience',
-            plugins: 'a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker',
-            toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter image editimage pageembed permanentpen table tableofcontents',
-            toolbar_mode: 'floating',
-            tinycomments_mode: 'embedded',
-            tinycomments_author: 'Author name',
-        });
+
+        $(document).ready(function() {
+            $('.add-more-about-course').click(function(e) {
+                e.preventDefault();
+                $('#about-course>tbody').append(`
+                        <tr>
+                            <td class="p-0 border-0"><input type="text" name="aboutCoureses[]"
+                                    class="form-control mt-2"></td>
+                            <td class="p-0 mt-2 border-0">
+                                <button type="button" class="mt-2 remove-course-about btn btn-outline-danger ms-2 btn-icon waves-effect waves-light shadow-none"><i class="ri-delete-bin-5-line"></i></button>
+                            </td>
+                        </tr>
+                `)
+            });
+
+            $(document).on('click', '.remove-course-about', function(e) {
+                e.preventDefault();
+                let tr_item = $(this).parent().parent();
+                $(tr_item).remove();
+            })
+        })
     </script>
 @endsection
