@@ -25,7 +25,7 @@
                             <table class="table table-striped" id="about-course">
                                 <tr>
                                     <td class="p-0 border-0"><input type="text" name="aboutCoureses[]"
-                                            class="form-control"></td>
+                                            class="form-control about-course"></td>
                                     <td class="p-0 border-0">
                                         <!-- Outline Buttons -->
                                         <button type="button"
@@ -168,23 +168,31 @@
 
 
         $(document).ready(function() {
+            $('.about-course').val('');
             $('.add-more-about-course').click(function(e) {
                 e.preventDefault();
+                let aboutCourse = $('.about-course').val();
+                //Set
+                $('.aboutCourse').val(aboutCourse);
+
                 $('#about-course>tbody').append(`
                         <tr>
-                            <td class="p-0 border-0"><input type="text" name="aboutCoureses[]"
-                                    class="form-control mt-2"></td>
+                            <td class="p-0 border-0"><input type="text" value="${aboutCourse}" name="aboutCoureses[]"
+                                    class="form-control mt-2" readonly></td>
                             <td class="p-0 mt-2 border-0">
                                 <button type="button" class="mt-2 remove-course-about btn btn-outline-danger ms-2 btn-icon waves-effect waves-light shadow-none"><i class="ri-delete-bin-5-line"></i></button>
                             </td>
                         </tr>
                 `)
+
+                $('.about-course').val('');
             });
 
             $(document).on('click', '.remove-course-about', function(e) {
                 e.preventDefault();
                 let tr_item = $(this).parent().parent();
                 $(tr_item).remove();
+                4
             })
         })
     </script>

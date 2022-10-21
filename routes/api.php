@@ -8,12 +8,9 @@ use Illuminate\Support\Facades\Route;
 // Public Routes
 Route::post('login', [AuthController::class, 'login']);
 Route::get('courses', [ApiController::class, 'courses']);
-Route::get('course/{id}', [ApiController::class, 'courseSingle']);
+Route::get('course/{slug}', [ApiController::class, 'courseSingle']);
 
 // Secure Routes
-Route::middleware('auth:api')->group(function(){
+Route::middleware('auth:api')->group(function () {
     Route::get('lessons', [ApiController::class, 'lessons']);
 });
-
-
-
