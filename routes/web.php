@@ -54,6 +54,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     // Lesson Management
     Route::resource('lesson', LessonController::class);
+    Route::post('lesson/order-sortable', [LessonController::class, 'sortable'])->name('lesson.sortable');
 });
 
 

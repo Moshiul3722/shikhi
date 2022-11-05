@@ -32,17 +32,17 @@ class Course extends Model
         return $this->belongsToMany(User::class, 'courses_users', 'course_id', 'student_id');
     }
 
-    public function getThumbnailAttribute($name)
-    {
-        if (str_starts_with($name, 'http')) {
-            return [
-                'url'      => $name,
-            ];
-        } else {
-            return [
-                'url'      => asset('storage/uploads/' . $name),
-                'fileName' => $name
-            ];
-        }
-    }
+    // public function getThumbnailAttribute($name)
+    // {
+    //     if (str_starts_with($name, 'http')) {
+    //         return [
+    //             'url'      => $name,
+    //         ];
+    //     } else {
+    //         return [
+    //             'url'      => asset('storage/uploads/' . $name),
+    //             'fileName' => $name
+    //         ];
+    //     }
+    // }
 }

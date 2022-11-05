@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('name', 256);
             $table->string('slug', 256)->unique();
             $table->mediumText('content')->nullable();
-            $table->enum('visibility', ['private', 'public'])->default('public');
             $table->foreignId('course_id');
+            $table->integer('positions')->nullable()->default(0);
             $table->timestamps();
         });
     }

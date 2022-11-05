@@ -47,6 +47,7 @@ class CourseController extends Controller
     {
         $request->validate([
             'courseTitle'  => 'required|max:255|string',
+            'youLearn'  => 'required',
             'description'  => 'required',
             'requirements' => 'required|string',
             'audience'     => 'required|string',
@@ -56,16 +57,20 @@ class CourseController extends Controller
             'thumbnail'    => 'required',
         ]);
 
+
+
         $thumb = '';
         if (!empty($request->file('thumbnail'))) {
             $thumb = time() . '-' . $request->file('thumbnail')->getClientOriginalName();
-            $thumb = str_replace( ' ', '-', $thumb );
-            $request->file( 'thumbnail' )->storeAs( 'public/uploads/course', $thumb );
+            $thumb = str_replace(' ', '-', $thumb);
+            // dd($request->file('thumbnail'));
+            $request->file('thumbnail')->storeAs('public/uploads/', $thumb);
         }
 
         Course::create([
             'name' => $request->courseTitle,
             'slug' => Str::slug($request->courseTitle),
+            'youLearn' => $request->youLearn,
             'description' => $request->description,
             'requirements' => $request->requirements,
             'audience' => $request->audience,
@@ -117,6 +122,7 @@ class CourseController extends Controller
     {
         $request->validate([
             'courseTitle'  => 'required|max:255|string',
+            'youLearn'  => 'required',
             'description'  => 'required',
             'requirements' => 'required|string',
             'audience'     => 'required|string',
@@ -126,10 +132,12 @@ class CourseController extends Controller
             // 'thumbnail'    => 'required',
         ]);
 
-        // dd($course->thumbnail['fileName']);
 
-        $thumb = $course->thumbnail['fileName'];
 
+        $thumb = $course->thumbnail;
+
+
+        // dd($thumb);
         if (!empty($request->file('thumbnail'))) {
             Storage::delete('public/uploads/' . $thumb);
             $thumb = time() . '-' . $request->file('thumbnail')->getClientOriginalName();
@@ -137,15 +145,16 @@ class CourseController extends Controller
         }
 
         $course->update([
-            'name' => $request->courseTitle,
-            'slug' => Str::slug($request->courseTitle),
-            'description' => $request->description,
+            'name'         => $request->courseTitle,
+            'slug'         => Str::slug($request->courseTitle),
+            'youLearn'     => $request->youLearn,
+            'description'  => $request->description,
             'requirements' => $request->requirements,
-            'audience' => $request->audience,
-            'status' => $request->visibility,
-            'category_id' => $request->category,
-            'teacher_id' => $request->teacher,
-            'thumbnail' => $thumb
+            'audience'     => $request->audience,
+            'status'       => $request->visibility,
+            'category_id'  => $request->category,
+            'teacher_id'   => $request->teacher,
+            'thumbnail'    => $thumb
         ]);
 
         $msg = 'Course updated successfully';

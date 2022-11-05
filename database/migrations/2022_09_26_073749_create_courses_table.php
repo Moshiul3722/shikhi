@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
+            $table->longText('youLearn')->nullable();
             $table->longText('description')->nullable();
             $table->longText('requirements')->nullable();
             $table->longText('audience')->nullable();

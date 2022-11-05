@@ -20,20 +20,11 @@
                         </div>
 
                         <div class="col-12">
-                            <label for="aboutLearn" class="form-label">What Will You Learn?</label>
+                            <label for="youLearn" class="form-label">What Will You Learn?</label>
 
-                            <table class="table table-striped" id="about-course">
-                                <tr>
-                                    <td class="p-0 border-0"><input type="text" name="aboutCoureses[]"
-                                            class="form-control about-course"></td>
-                                    <td class="p-0 border-0">
-                                        <!-- Outline Buttons -->
-                                        <button type="button"
-                                            class="btn btn-outline-secondary ms-2 waves-effect waves-light shadow-none add-more-about-course"><i
-                                                class="ri-add-fill"></i></button>
-                                    </td>
-                                </tr>
-                            </table>
+                            <x-tinymce-editor name="youLearn">{{ old('youLearn') }}</x-tinymce-editor>
+
+
                         </div>
 
                         <div class="col-12">
