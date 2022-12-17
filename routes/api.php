@@ -10,7 +10,7 @@ Route::post('login', [AuthController::class, 'login']);
 Route::get('courses', [ApiController::class, 'courses']);
 Route::get('course/{slug}', [ApiController::class, 'courseSingle']);
 
-// Secure Routes
+// Secure/protected Routes
 Route::middleware('auth:api')->group(function () {
     Route::get('lessons', [ApiController::class, 'lessons']);
 });

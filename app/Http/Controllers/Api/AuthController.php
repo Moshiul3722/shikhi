@@ -16,24 +16,31 @@ class AuthController extends Controller
         ]);
 
         try {
-            if (!Auth::attempt($request->only('email', 'password'))) {
+            // If Email Or Password match
+            if (! Auth::attempt($request->only('email', 'password'))) {
                 return [
-                    'error' => true,
-                    'message' => 'User not found'
-                ];
-            } else {
-                $token = auth()->user()->createToken('authToken')->accessToken;
-                return [
-                    'error' => false,
-                    'message' => 'Login successful',
-                    'user' => auth()->user(),
-                    'token' => $token
+                    'error'     => false,
+                    'message'   => 'Email Or Password does not match!'
                 ];
             }
+
+            /** @var User $user */
+            $user = Auth()->user();
+            // Token
+            $token = $user->createToken('token')->plainTextToken;
+
+            // Response
+            return [
+                'error'   => false,
+                'message' => 'logged in successful',
+                'token'   => $token,
+                'user'    => $user,
+            ];
         } catch (\Throwable $th) {
+            // Response
             return [
                 'error' => true,
-                'message' => 'Something wrong!'
+                'message' => 'Something went wrong!'. $th->getMessage(),
             ];
         }
     }
