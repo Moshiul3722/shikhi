@@ -32,6 +32,10 @@ class Course extends Model
         return $this->belongsToMany(User::class, 'courses_users', 'course_id', 'student_id');
     }
 
+    public function wishlist()
+    {
+        # code...
+    }
     // public function getThumbnailAttribute($name)
     // {
     //     if (str_starts_with($name, 'http')) {
