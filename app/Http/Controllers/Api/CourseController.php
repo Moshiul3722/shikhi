@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\CourseResource;
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
@@ -45,6 +46,39 @@ class CourseController extends Controller
             return[
                 'error'=>true,
                 'message'=>'Something went wrong'
+            ];
+        }
+    }
+
+    public function courseEnroll(Request $request)
+    {
+        try {
+            if(!Auth::user()){
+                return[
+                    'error'=>true,
+                    'message'=>"You need to login"
+                ];
+            }
+
+            $course = Course::where('slug',$request->slug)->where('status','active')->get()->first();
+            $user = Auth::user();
+
+// return $course;
+           /**
+            * @var User $user
+            */
+            // $user->courses()->sync([$course->id]);
+            // $user->courses()->attach([$course->id]);
+            $course->students()->sync([$user->id]);
+
+           return[
+            'error'=>false,
+            'data'=> "Course Enrolled Successfully"
+           ];
+        } catch (\Throwable $th) {
+            return[
+                'error'=>true,
+                'message'=>$th->getMessage()
             ];
         }
     }

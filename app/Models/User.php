@@ -31,6 +31,16 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+
+
+    // public function courseEnroll(){
+    //     $this->belongsToMany(Course::class,'courses_users','student_id','course_id');
+    // }
+    public function courses(){
+        $this->belongsToMany(Course::class,'courses_users','student_id','course_id');
+    }
+
+
     /**
      * The attributes that should be cast.
      *

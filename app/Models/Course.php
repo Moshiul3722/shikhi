@@ -10,7 +10,7 @@ class Course extends Model
     use HasFactory;
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
-    protected $with = ['teacher', 'lessons', 'category', 'student'];
+    protected $with = ['teacher', 'lessons', 'category', 'students'];
 
     public function category()
     {
@@ -27,7 +27,7 @@ class Course extends Model
         return $this->hasMany(Lesson::class, 'course_id', 'id');
     }
 
-    public function student()
+    public function students()
     {
         return $this->belongsToMany(User::class, 'courses_users', 'course_id', 'student_id');
     }
