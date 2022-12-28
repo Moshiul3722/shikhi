@@ -185,7 +185,7 @@
                 e.preventDefault();
                 let tr_item = $(this).parent().parent();
                 $(tr_item).remove();
-                4
+
             })
         })
     </script>
