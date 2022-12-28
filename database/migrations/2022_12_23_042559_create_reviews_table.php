@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('lessons', function (Blueprint $table) {
+        Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 256);
-            $table->string('slug', 256)->unique();
-            $table->mediumText('content')->nullable();
-            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->bigInteger('star');
+            $table->longText('content');
+            $table->foreignId('student_id');
             $table->foreignId('course_id');
-            $table->integer('positions')->nullable()->default(0);
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lessons');
+        Schema::dropIfExists('reviews');
     }
 };

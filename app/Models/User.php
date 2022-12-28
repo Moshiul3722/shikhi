@@ -21,6 +21,7 @@ class User extends Authenticatable
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -40,6 +41,15 @@ class User extends Authenticatable
         $this->belongsToMany(Course::class,'courses_users','student_id','course_id');
     }
 
+    /**
+     * User withlist
+     *
+     * @return void
+     */
+    public function wishlist()
+    {
+        return $this->belongsToMany(Course::class, 'courses_users_wishlists','course_id','student_id')->withTimestamps();
+    }
 
     /**
      * The attributes that should be cast.

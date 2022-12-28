@@ -19,18 +19,17 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-
         Role::create(['name' => 'super-admin']);
         Role::create(['name' => 'student']);
         Role::create(['name' => 'teacher']);
 
         \App\Models\User::factory()->create([
-            'name'              =>  'Gazi Moshiul',
-            'userName'          =>  'Moshiul',
-            'email'             =>  'test@gmail.com',
-            'email_verified_at' =>  now(),
-            'image'             =>  'https://random.imagecdn.app/100/100',
-            'password'          =>  bcrypt('123')
+            'name' => 'Gazi Moshiul',
+            'userName' => 'Moshiul',
+            'email' => 'test@gmail.com',
+            'email_verified_at' => now(),
+            'image' => 'https://random.imagecdn.app/100/100',
+            'password' => bcrypt('123'),
         ])->assignRole('super-admin');
 
         // Category
@@ -40,6 +39,6 @@ class DatabaseSeeder extends Seeder
         \App\Models\Course::factory(15)->create();
 
         // Lesson
-        \App\Models\Lesson::factory(15)->create();
+        \App\Models\Lesson::factory(50)->create();
     }
 }

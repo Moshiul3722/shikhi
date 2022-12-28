@@ -31,6 +31,15 @@ return new class extends Migration
         Schema::create('courses_users', function (Blueprint $table) {
             $table->unsignedBigInteger('course_id');
             $table->unsignedBigInteger('student_id');
+            $table->timestamps();
+        });
+
+        // courses users wishlists
+        Schema::create('courses_users_wishlists', function (Blueprint $table) {
+            // $table->id();
+            $table->foreignId('student_id');
+            $table->foreignId('course_id');
+            $table->timestamps();
         });
     }
 
@@ -42,5 +51,7 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('courses');
+        Schema::dropIfExists('courses_users');
+        Schema::dropIfExists('courses_users_wishlists');
     }
 };
