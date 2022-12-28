@@ -15,7 +15,7 @@
 
             images_reuse_filename: true,
             image_advtab: false,
-            height: 400,
+            height: 250,
             image_caption: true,
             branding: false,
             skin: useDarkMode ? 'oxide-dark' : 'oxide',

@@ -20,26 +20,58 @@
                             @enderror
                         </div>
                         <div class="col-12">
+                            <label for="youLearn" class="form-label">What Will You Learn?</label>
+                            <x-tinymce-editor name="youLearn">{{ $course->youLearn }}</x-tinymce-editor>
+
+                            @error('description')
+                                <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
+                            @enderror
+                        </div>
+                        <div class="col-12">
                             <label for="description" class="form-label">Description</label>
-                            <textarea class="form-control description" name="description" rows="5" id="description"
-                                placeholder="Description here..."> {{ $course->description }}</textarea>
+                            <x-tinymce-editor name="description">{{ $course->description }}</x-tinymce-editor>
+
                             @error('description')
                                 <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
                             @enderror
                         </div>
                         <div class="col-md-12 col-sm-12">
                             <label for="requirements" class="form-label">Requirements</label>
-                            <textarea class="form-control requirements" name="requirements" rows="5" id="requirements"
-                                placeholder="Requirements here...">{{ $course->requirements }}</textarea>
+                            <x-tinymce-editor name="requirements">{{ $course->requirements }}</x-tinymce-editor>
+
                             @error('requirements')
                                 <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
                             @enderror
                         </div>
                         <div class="col-md-12 col-sm-12">
                             <label for="audience" class="form-label">Audience</label>
-                            <textarea class="form-control audience" name="audience" rows="5" id="audience" placeholder="Audience here...">
-                                {{ $course->audience }}
-                            </textarea>
+                            <x-tinymce-editor name="audience">{{ $course->audience }}</x-tinymce-editor>
+
+                            @error('audience')
+                                <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
+                            @enderror
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <label for="audience" class="form-label">Lessons</label>
+
+
+
+                            <div class="list-group col nested-list nested-sortable-handle sortable-lessons">
+
+                                @forelse ($course->lessons as $lesson)
+                                    <div class="list-group-item nested-2 cursor-pointer" data-index={{ $lesson->id }}
+                                        data-position={{ $lesson->positions }}><i
+                                            class="ri-drag-move-fill align-bottom handle"></i> {{ $lesson->name }}</div>
+
+                                @empty
+                                    <p class="text-center border rounded border-danger p-2 text-danger cursor-pointer">
+                                        No Lessons found yet!!!
+                                    </p>
+                                @endforelse
+
+
+                            </div><!-- end card-body -->
+
                             @error('audience')
                                 <p class="mb-0"><small class="text-danger fs-6">{{ $message }}</small></p>
                             @enderror
@@ -51,10 +83,18 @@
             </div>
         </div>
         <div class="col-lg-4">
+            <div class="card mb-2">
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-info waves-effect waves-light" type="submit">Update Course</button>
+                    </div>
+                </div>
+            </div>
             <div class="card">
                 <div class="card-body">
                     <div class="d-grid gap-2">
-                        <button class="btn btn-info waves-effect waves-light" type="submit">Edit Course</button>
+                        <a class="btn btn-success waves-effect waves-light"
+                            href="{{ route('lesson.create') }}?course_id={{ $course->id }}">Add Lesson</a>
                     </div>
                 </div>
             </div>
@@ -137,9 +177,55 @@
 @endsection
 
 @section('scripts')
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
+        integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+
 
 
     <script>
+        $(document).ready(function() {
+
+            $(function() {
+                $('.sortable-lessons').sortable({
+                    opacity: 0.8,
+                    cursor: 'move',
+                    update: function() {
+                        var order = $(this).sortable("serialize");
+                        $.ajax({
+                            url: "{{ route('lesson.sortable') }}",
+                            method: 'POST',
+                            data: {
+                                order: order,
+                                _token: "{{ csrf_token() }}"
+                            },
+                            success: function(response) {
+                                $('.response').css({
+                                    "display": "block",
+                                    "padding": "4px",
+                                    "text-align": "center",
+                                    "background": "#03D87F",
+                                    'color': "#fff"
+                                });
+                                $('.response').html(response);
+                                $('.response').slideDown('slow')
+                                // slideout()
+                            }
+                        });
+                    }
+                })
+            })
+
+        });
+
+
+        function slideout() {
+            let positions = [];
+            $('.updated').each(function() {
+                positions.push([$(this).attr('data-index'), $(this).attr('data-position')]);
+                $(this).removeClass('updated');
+            });
+        }
+
         // initialize the plugins
         FilePond.registerPlugin(
             FilePondPluginImagePreview,
@@ -153,39 +239,27 @@
 
         FilePond.setOptions({
             storeAsFile: true,
-            files: [
-        {
-            // the server file reference
-            source: '12345',
+            files: [{
+                // the server file reference
+                source: '{{ rand(12, 1232333) }}',
 
-            // set type to local to indicate an already uploaded file
-            options: {
-                type: 'local',
+                // set type to local to indicate an already uploaded file
+                options: {
+                    type: 'local',
 
-                // optional stub file information
-                file: {
-                    name: 'my-file.png',
-                    size: 3001025,
-                    type: 'image/png',
+                    // optional stub file information
+                    file: {
+                        name: '{{ $course->thumbnail }}',
+                        type: 'image/png',
+                    },
+
+                    // pass poster property
+                    metadata: {
+                        poster: "{{ getAssetUrl($course->thumbnail, 'storage/uploads') }}",
+                    },
                 },
+            }, ],
 
-                // pass poster property
-                metadata: {
-                    poster: '{{asset("storage/upload")}}',
-                },
-            },
-        },
-    ],
-
-        });
-
-        tinymce.init({
-            selector: 'textarea.description,textarea.requirements,textarea.audience',
-            plugins: 'a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker',
-            toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter image editimage pageembed permanentpen table tableofcontents',
-            toolbar_mode: 'floating',
-            tinycomments_mode: 'embedded',
-            tinycomments_author: 'Author name',
         });
     </script>
 @endsection

@@ -26,12 +26,14 @@ class ApiController extends Controller
             'category' => Category::get()
         ];
     }
-    public function courseSingle($id)
+
+    // Single Course view
+    public function courseSingle($slug)
     {
-        $course = Course::findOrFail($id);
+        $course = Course::where('slug', $slug)->get()->first();
         return [
             'error' => false,
-            'course'=>$course
+            'course' => $course
         ];
     }
 }

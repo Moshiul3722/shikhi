@@ -24,8 +24,8 @@ class LessonFactory extends Factory
             'name'       => $name,
             'slug'       => Str::slug($name),
             'content'    => fake()->paragraph(rand(1, 3), true),
-            'visibility' => $type[rand(0, 1)],
-            'course_id'  => Course::all()->random()->id
+            'course_id'  => Course::all()->random()->id,
+            'positions'  => 0,
         ];
     }
 }

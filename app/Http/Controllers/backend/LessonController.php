@@ -44,7 +44,6 @@ class LessonController extends Controller
             'lessonTitle'  => 'required|max:255|string',
             'course'  => 'required',
             'content' => 'required|string',
-            'visibility'   => 'required|not_in:none',
         ]);
 
         Lesson::create([
@@ -52,12 +51,11 @@ class LessonController extends Controller
             'slug' => Str::slug($request->lessonTitle),
             'course_id' => $request->course,
             'content' => $request->content,
-            'visibility' => $request->visibility,
         ]);
 
-        Alert::success('Lesson added successfully','We have added this lesson to our course');
+        // Alert::success('Lesson added successfully', 'We have added this lesson to our course');
         // $msg = 'Lesson added successfully';
-        return redirect()->route('lesson.index');
+        return redirect()->route('course.edit', $request->course);
         // ->with('success', $msg);
     }
 
@@ -110,7 +108,7 @@ class LessonController extends Controller
             'visibility' => $request->visibility,
         ]);
 
-        Alert::success('Lesson updated successfully','You have update this lesson');
+        Alert::success('Lesson updated successfully', 'You have update this lesson');
         // $msg = 'Lesson added successfully';
         return redirect()->route('lesson.index');
         // ->with('success', $msg);
@@ -126,5 +124,18 @@ class LessonController extends Controller
     {
         $lesson->delete();
         return redirect()->route('lesson.index');
+    }
+
+
+    public function sortable(Lesson $lesson)
+    {
+        $lessons = str_replace('&', '', explode('arrayorder[]=', $lesson->positions));
+        $counter = 1;
+        for ($i = 1; $i < count($lessons); $i++) {
+            $lesson = Lesson::findOrFail($lessons[$i]);
+            $lesson->positions = $counter++;
+            $lesson->save();
+        }
+        echo 'Please reload the page for change';
     }
 }

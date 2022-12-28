@@ -20,20 +20,11 @@
                         </div>
 
                         <div class="col-12">
-                            <label for="aboutLearn" class="form-label">What Will You Learn?</label>
+                            <label for="youLearn" class="form-label">What Will You Learn?</label>
 
-                            <table class="table table-striped" id="about-course">
-                                <tr>
-                                    <td class="p-0 border-0"><input type="text" name="aboutCoureses[]"
-                                            class="form-control about-course"></td>
-                                    <td class="p-0 border-0">
-                                        <!-- Outline Buttons -->
-                                        <button type="button"
-                                            class="btn btn-outline-secondary ms-2 waves-effect waves-light shadow-none add-more-about-course"><i
-                                                class="ri-add-fill"></i></button>
-                                    </td>
-                                </tr>
-                            </table>
+                            <x-tinymce-editor name="youLearn">{{ old('youLearn') }}</x-tinymce-editor>
+
+
                         </div>
 
                         <div class="col-12">
@@ -170,32 +161,31 @@
         let aboutId=1;
 
         $(document).ready(function() {
+            $('.about-course').val('');
             $('.add-more-about-course').click(function(e) {
                 e.preventDefault();
                 let aboutCourse = $('.about-course').val();
                 //Set
                 $('.aboutCourse').val(aboutCourse);
 
-
-
-                // $("#aboutCourse").setAttribute("class", "gazi");
-                // alert(aboutCourse)
                 $('#about-course>tbody').append(`
                         <tr>
-                            <td class="p-0 border-0"><input id="aboutCourse" readonly="readonly" type="text" name="aboutCoureses[]" value="${aboutCourse}" class="form-control mt-2 aboutCourse"></td>
+                            <td class="p-0 border-0"><input type="text" value="${aboutCourse}" name="aboutCoureses[]"
+                                    class="form-control mt-2" readonly></td>
                             <td class="p-0 mt-2 border-0">
                                 <button type="button" class="mt-2 remove-course-about btn btn-outline-danger ms-2 btn-icon waves-effect waves-light shadow-none"><i class="ri-delete-bin-5-line"></i></button>
                             </td>
                         </tr>
                 `)
 
-
+                $('.about-course').val('');
             });
 
             $(document).on('click', '.remove-course-about', function(e) {
                 e.preventDefault();
                 let tr_item = $(this).parent().parent();
                 $(tr_item).remove();
+                4
             })
         })
     </script>

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Passport\HasApiTokens;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -30,6 +30,16 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+
+
+    // public function courseEnroll(){
+    //     $this->belongsToMany(Course::class,'courses_users','student_id','course_id');
+    // }
+    public function courses(){
+        $this->belongsToMany(Course::class,'courses_users','student_id','course_id');
+    }
+
 
     /**
      * The attributes that should be cast.

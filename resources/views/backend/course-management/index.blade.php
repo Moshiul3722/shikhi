@@ -24,7 +24,9 @@
                                 <tr>
                                     <td scope="row">{{ ++$key }}</td>
                                     <td>
-                                        <img class="avatar-xs rounded-circle" src="{{getAssetUrl($course->thumbnail,'uploads')}}">
+
+                                        <img class="avatar-xs rounded-circle"
+                                            src="{{ getAssetUrl($course->thumbnail, 'storage/uploads') }}">
 
                                     </td>
                                     <td>{{ $course->name }}</td>
