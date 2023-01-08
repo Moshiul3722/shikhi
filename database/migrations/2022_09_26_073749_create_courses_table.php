@@ -22,6 +22,7 @@ return new class extends Migration
             $table->longText('requirements')->nullable();
             $table->longText('audience')->nullable();
             $table->string('thumbnail')->nullable();
+            $table->enum('level', ['beginner', 'intermediate', 'expert'])->default('beginner');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->foreignId('category_id');
             $table->foreignId('teacher_id');

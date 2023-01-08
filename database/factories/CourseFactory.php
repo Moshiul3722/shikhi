@@ -21,6 +21,7 @@ class CourseFactory extends Factory
     {
         $name = $this->faker->name();
         $type = ['active', 'inactive'];
+        $level = ['beginner', 'intermediate', 'expert'];
         return [
             'name'         => $name,
             'slug'         => Str::slug($name),
@@ -28,6 +29,7 @@ class CourseFactory extends Factory
             'requirements' => $this->faker->sentence(rand(5, 10)),
             'audience'     => $this->faker->name(),
             'status'       => $type[rand(0, 1)],
+            'level'       => $level[rand(0, 2)],
             'category_id'  => Category::all()->random()->id,
             'teacher_id'   => User::all()->random()->id,
             'thumbnail'    => 'https://source.unsplash.com/random/400x250?men,women&' . rand(2, 24345),

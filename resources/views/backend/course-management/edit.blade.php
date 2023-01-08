@@ -1,4 +1,4 @@
-@extends('backend.layout.master')
+  @extends('backend.layout.master')
 @section('title', 'Shikhi | Dashboard')
 @section('page', 'Edit Course')
 
@@ -102,15 +102,15 @@
             <div class="card">
                 <div class="card-body">
                     <div>
-                        <label for="visibility" class="form-label">Visibility</label>
+                        <label for="visibility" class="form-label">Visibility</label>Public
                         <select class="form-select" name="visibility" id="visibility">
                             <option value="none" {{ old('visibility') == 'none' ? 'selected' : '' }}>Select
                                 Visibility
                             </option>
                             <option value="active" {{ $course->status == 'active' ? 'selected' : '' }}>
-                                Private
+                                Active
                             </option>
-                            <option value="inactive" {{ $course->status == 'inactive' ? 'selected' : '' }}>Public
+                            <option value="inactive" {{ $course->status == 'inactive' ? 'selected' : '' }}>Inactive
                             </option>
                         </select>
                         @error('visibility')

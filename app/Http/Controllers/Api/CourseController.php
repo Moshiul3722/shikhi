@@ -221,7 +221,7 @@ class CourseController extends Controller
     {
         try {
             // Find course
-            $course = Course::where('slug', $course)->where('status', 'active')->get()->first();
+  $course = Course::where('slug', $course)->where('status', 'active')->get()->first();
 
             // Find Course lesson
             $lesson = Lesson::where('slug', $lesson)->where('course_id', $course->id);

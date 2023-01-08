@@ -36,9 +36,9 @@ class DatabaseSeeder extends Seeder
         Category::factory(10)->create();
 
         // Course
-        \App\Models\Course::factory(15)->create();
+        \App\Models\Course::factory(30)->create();
 
         // Lesson
-        \App\Models\Lesson::factory(50)->create();
+        \App\Models\Lesson::factory(100)->create();
     }
 }
